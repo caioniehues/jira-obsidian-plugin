@@ -1,4 +1,4 @@
-import { Plugin } from 'obsidian';
+import { Plugin, requestUrl } from 'obsidian';
 
 export interface JiraCredentials {
   email: string;
@@ -111,20 +111,39 @@ export class AuthManager {
   }
 
   /**
-   * Validate credentials against Jira API
+   * Validate credentials against Jira API using Obsidian's requestUrl
    */
   async validateCredentials(credentials: JiraCredentials): Promise<boolean> {
     const { email, apiToken, serverUrl } = credentials;
     
     try {
-      const response = await fetch(`${serverUrl}/rest/api/3/myself`, {
+      const authString = `Basic ${btoa(`${email}:${apiToken}`)}`;
+      const url = `${serverUrl}/rest/api/3/myself`;
+      
+      console.log('Validating credentials for:', email);
+      console.log('Server URL:', serverUrl);
+      
+      // Use Obsidian's requestUrl to bypass CORS
+      const response = await requestUrl({
+        url: url,
+        method: 'GET',
         headers: {
-          'Authorization': `Basic ${btoa(`${email}:${apiToken}`)}`,
+          'Authorization': authString,
           'Accept': 'application/json'
-        }
+        },
+        throw: false // Don't throw on error, we'll handle it
       });
       
-      return response.ok;
+      if (response.status !== 200) {
+        console.error('Validation failed:', response.status);
+        if (response.status === 401) {
+          console.error('Authentication failed. Please check your email and API token.');
+        } else if (response.status === 403) {
+          console.error('Access forbidden. Your account may not have the necessary permissions.');
+        }
+      }
+      
+      return response.status === 200;
     } catch (error) {
       console.error('Failed to validate credentials:', error);
       return false;
@@ -211,19 +230,48 @@ export class AuthManager {
     try {
       const encryptedData = await this.getStoredCredentials();
       if (!encryptedData) {
-        return { success: false, message: 'No credentials stored' };
+        return { success: false, message: 'No credentials stored. Please save your configuration first.' };
       }
       
-      const credentials = await this.decryptCredentials(encryptedData, masterPassword);
-      const isValid = await this.validateCredentials(credentials);
+      let credentials: JiraCredentials;
+      try {
+        credentials = await this.decryptCredentials(encryptedData, masterPassword);
+      } catch (decryptError) {
+        return { success: false, message: 'Incorrect master password. Please enter the password you used to encrypt your credentials.' };
+      }
       
-      if (isValid) {
-        return { success: true, message: 'Connection successful' };
-      } else {
-        return { success: false, message: 'Invalid credentials or server unreachable' };
+      // Test the connection with a simple API call using Obsidian's requestUrl
+      try {
+        const authString = `Basic ${btoa(`${credentials.email}:${credentials.apiToken}`)}`;
+        const url = `${credentials.serverUrl}/rest/api/3/myself`;
+        
+        const response = await requestUrl({
+          url: url,
+          method: 'GET',
+          headers: {
+            'Authorization': authString,
+            'Accept': 'application/json'
+          },
+          throw: false
+        });
+        
+        if (response.status === 200) {
+          const userData = response.json;
+          return { success: true, message: `Connection successful! Logged in as ${userData.displayName || userData.emailAddress}` };
+        } else if (response.status === 401) {
+          return { success: false, message: 'Authentication failed. Please verify your email and API token are correct.' };
+        } else if (response.status === 403) {
+          return { success: false, message: 'Access forbidden. Your account may not have the necessary permissions.' };
+        } else if (response.status === 404) {
+          return { success: false, message: 'API endpoint not found. Please check your server URL is correct.' };
+        } else {
+          return { success: false, message: `Server returned error: ${response.status}` };
+        }
+      } catch (networkError) {
+        return { success: false, message: 'Network error. Please check your internet connection and server URL.' };
       }
     } catch (error) {
-      return { success: false, message: error instanceof Error ? error.message : 'Unknown error' };
+      return { success: false, message: error instanceof Error ? error.message : 'Unknown error occurred' };
     }
   }
 }

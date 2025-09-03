@@ -2,13 +2,13 @@ import { Plugin, WorkspaceLeaf } from 'obsidian';
 import { JiraView, VIEW_TYPE_JIRA_DASHBOARD } from './views/JiraView';
 import { AuthManager } from './services/AuthManager';
 import { JiraApiService } from './services/jiraApiService';
-import { HttpClient } from './services/httpClient';
+import { ObsidianHttpClient } from './services/ObsidianHttpClient';
 import { RateLimiter } from './services/rateLimiter';
 
 export default class JiraDashboardPlugin extends Plugin {
   authManager!: AuthManager;
   jiraService!: JiraApiService;
-  httpClient!: HttpClient;
+  httpClient!: ObsidianHttpClient;
   rateLimiter!: RateLimiter;
 
   async onload() {
@@ -17,9 +17,10 @@ export default class JiraDashboardPlugin extends Plugin {
     // Initialize services
     this.authManager = new AuthManager(this);
     
-    // Initialize HTTP client and rate limiter
-    this.httpClient = new HttpClient({
-      baseUrl: '', // Will be set when credentials are configured
+    // Initialize HTTP client with default empty config
+    // Will be updated when credentials are loaded or configured
+    this.httpClient = new ObsidianHttpClient({
+      baseUrl: 'https://richemont.atlassian.net', // Default to common server
       email: '',
       apiToken: ''
     });
@@ -71,7 +72,7 @@ export default class JiraDashboardPlugin extends Plugin {
     console.log('Unloading Jira Dashboard plugin');
     // Clean up any resources
     this.jiraService.destroy();
-    await this.authManager.clearCredentials();
+    // Do NOT clear credentials on unload - we want them to persist!
   }
 
   async activateView() {

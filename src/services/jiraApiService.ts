@@ -7,7 +7,8 @@
  */
 
 import { AuthManager, JiraCredentials } from './AuthManager';
-import { HttpClient, HttpClientConfig } from './httpClient';
+import { ObsidianHttpClient } from './ObsidianHttpClient';
+import { HttpClientConfig } from './ObsidianHttpClient';
 import { RateLimiter } from './rateLimiter';
 import { 
   JiraIssue, 
@@ -36,19 +37,19 @@ export interface JiraApiServiceConfig {
 
 export interface JiraApiServiceDependencies {
   authManager: AuthManager;
-  httpClient: HttpClient;
+  httpClient: ObsidianHttpClient;
   rateLimiter: RateLimiter;
 }
 
 export class JiraApiService {
   private authManager: AuthManager;
-  private httpClient: HttpClient;
+  private httpClient: ObsidianHttpClient;
   private rateLimiter: RateLimiter;
   private requestDeduplicationMap: Map<string, Promise<any>> = new Map();
 
   constructor(
     authManager: AuthManager,
-    httpClient: HttpClient,
+    httpClient: ObsidianHttpClient,
     rateLimiter: RateLimiter
   ) {
     this.authManager = authManager;

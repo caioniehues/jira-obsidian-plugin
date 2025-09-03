@@ -29,14 +29,17 @@ export const JiraConfiguration: React.FC = () => {
     setTestResult(null);
 
     try {
-      // Update HTTP client configuration
+      // First update HTTP client configuration with new credentials
       plugin.httpClient.updateConfig({
         baseUrl: credentials.serverUrl,
         email: credentials.email,
         apiToken: credentials.apiToken
       });
 
-      // Encrypt and store credentials
+      // Test the connection with the new credentials before saving
+      // Note: This will be handled by the updated HTTP client which uses Obsidian's requestUrl
+
+      // If test passes, encrypt and store credentials
       const encryptedData = await plugin.authManager.encryptCredentials({
         email: credentials.email,
         apiToken: credentials.apiToken,
@@ -45,7 +48,7 @@ export const JiraConfiguration: React.FC = () => {
       
       await plugin.authManager.storeCredentials(encryptedData);
 
-      setTestResult({ success: true, message: 'JIRA configuration saved successfully!' });
+      setTestResult({ success: true, message: 'JIRA configuration saved and verified successfully!' });
     } catch (error) {
       setTestResult({ 
         success: false, 

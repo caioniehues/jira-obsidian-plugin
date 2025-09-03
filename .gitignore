@@ -16,6 +16,10 @@ build/
 .env.test.local
 .env.production.local
 
+# Test files with credentials
+test-browser.html
+test-connection.js
+
 # IDE and editor files
 .vscode/
 .idea/

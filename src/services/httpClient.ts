@@ -48,7 +48,7 @@ export class HttpClient {
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'Authorization': `Basic ${Buffer.from(`${this.config.email}:${this.config.apiToken}`).toString('base64')}`
+        'Authorization': `Basic ${btoa(`${this.config.email}:${this.config.apiToken}`)}`
       }
     });
 
@@ -389,6 +389,6 @@ export class HttpClient {
     this.axiosInstance.defaults.baseURL = this.config.baseUrl;
     this.axiosInstance.defaults.timeout = this.config.timeout;
     this.axiosInstance.defaults.headers['Authorization'] = 
-      `Basic ${Buffer.from(`${this.config.email}:${this.config.apiToken}`).toString('base64')}`;
+      `Basic ${btoa(`${this.config.email}:${this.config.apiToken}`)}`;
   }
 }
