@@ -4,6 +4,7 @@ import { AuthManager } from './services/AuthManager';
 import { JiraApiService } from './services/jiraApiService';
 import { ObsidianHttpClient } from './services/ObsidianHttpClient';
 import { RateLimiter } from './services/rateLimiter';
+import { JiraSettingsTab } from './settings/SettingsTab';
 
 export default class JiraDashboardPlugin extends Plugin {
   authManager!: AuthManager;
@@ -37,6 +38,9 @@ export default class JiraDashboardPlugin extends Plugin {
       this.rateLimiter
     );
 
+    // Register settings tab
+    this.addSettingTab(new JiraSettingsTab(this.app, this));
+
     // Register the view
     this.registerView(
       VIEW_TYPE_JIRA_DASHBOARD,
@@ -62,8 +66,13 @@ export default class JiraDashboardPlugin extends Plugin {
       id: 'configure-jira-connection',
       name: 'Configure Jira Connection',
       callback: () => {
-        // This will open settings tab in the future
-        console.log('Opening Jira settings...');
+        // Open the settings tab
+        // @ts-ignore - Obsidian's internal API
+        const setting = (this.app as any).setting;
+        if (setting) {
+          setting.open();
+          setting.openTabById(this.manifest.id);
+        }
       }
     });
   }

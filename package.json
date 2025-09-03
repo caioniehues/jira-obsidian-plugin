@@ -55,6 +55,7 @@
     "dayjs": "^1.11.0",
     "framer-motion": "^10.0.0",
     "lru-cache": "^10.0.0",
+    "moment": "^2.30.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.62.0",
