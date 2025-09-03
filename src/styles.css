@@ -1,0 +1,388 @@
+/* Jira Dashboard Styles */
+
+.jira-dashboard-container {
+  height: 100%;
+  overflow: hidden;
+}
+
+.jira-dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px;
+  gap: 16px;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.dashboard-header h2 {
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.refresh-btn {
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Filter Bar */
+.filter-bar {
+  display: flex;
+  gap: 16px;
+  padding: 12px;
+  background: var(--background-secondary);
+  border-radius: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-section label {
+  font-weight: 500;
+  font-size: 0.9em;
+}
+
+.search-input,
+.jql-input {
+  padding: 4px 8px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  background: var(--background-primary);
+  min-width: 200px;
+}
+
+.filter-select {
+  padding: 4px 8px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  background: var(--background-primary);
+}
+
+.group-options {
+  display: flex;
+  gap: 4px;
+}
+
+.group-btn {
+  padding: 4px 12px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  background: var(--background-primary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.group-btn.active {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+/* Dashboard Content */
+.dashboard-content {
+  flex: 1;
+  overflow: auto;
+}
+
+/* Kanban Board */
+.kanban-board {
+  display: flex;
+  gap: 16px;
+  height: 100%;
+  overflow-x: auto;
+}
+
+/* Status Column */
+.status-column {
+  flex: 0 0 300px;
+  display: flex;
+  flex-direction: column;
+  background: var(--background-secondary);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.status-column.drag-over {
+  background: var(--background-secondary-alt);
+  border: 2px dashed var(--interactive-accent);
+}
+
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.column-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.status-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.task-count {
+  font-size: 0.85em;
+  padding: 2px 8px;
+  background: var(--background-primary);
+  border-radius: 12px;
+}
+
+.column-content {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.empty-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+/* Task Card */
+.task-card {
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  padding: 12px;
+  cursor: move;
+  transition: all 0.2s;
+}
+
+.task-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.task-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.task-key-type {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.issue-type-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.task-key {
+  font-size: 0.85em;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.task-priority {
+  width: 20px;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.task-summary {
+  margin: 0 0 8px 0;
+  font-size: 0.95em;
+  line-height: 1.4;
+}
+
+.task-description {
+  font-size: 0.85em;
+  color: var(--text-muted);
+  margin: 8px 0;
+  line-height: 1.4;
+}
+
+.task-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 8px 0;
+}
+
+.task-label {
+  font-size: 0.75em;
+  padding: 2px 6px;
+  background: var(--background-secondary);
+  border-radius: 3px;
+  color: var(--text-muted);
+}
+
+.task-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--background-modifier-border);
+}
+
+.task-assignee {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.assignee-avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.assignee-name {
+  font-size: 0.85em;
+  color: var(--text-muted);
+}
+
+.task-dates {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.task-updated,
+.task-due {
+  font-size: 0.75em;
+  color: var(--text-faint);
+}
+
+.task-due {
+  color: var(--text-error);
+}
+
+/* Grouped List View */
+.grouped-list {
+  padding: 0 16px;
+}
+
+.task-group {
+  margin-bottom: 24px;
+}
+
+.group-title {
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--background-modifier-border);
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Dashboard Footer */
+.dashboard-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: var(--background-secondary);
+  border-radius: 4px;
+  font-size: 0.85em;
+  color: var(--text-muted);
+}
+
+/* Loading State */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.loading-spinner {
+  text-align: center;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--background-modifier-border);
+  border-top: 4px solid var(--interactive-accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error State */
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.error-container {
+  text-align: center;
+  padding: 24px;
+  background: var(--background-secondary);
+  border-radius: 8px;
+}
+
+.error-container h3 {
+  color: var(--text-error);
+  margin-bottom: 8px;
+}
+
+.error-container button {
+  margin-top: 16px;
+  padding: 8px 16px;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Dark Theme Adjustments */
+.theme-dark .task-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.theme-dark .spinner {
+  border-color: var(--background-modifier-border-hover);
+  border-top-color: var(--interactive-accent);
+}
