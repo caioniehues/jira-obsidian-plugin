@@ -47,11 +47,8 @@ export class HttpClient {
       timeout: this.config.timeout,
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      auth: {
-        username: this.config.email,
-        password: this.config.apiToken
+        'Accept': 'application/json',
+        'Authorization': `Basic ${Buffer.from(`${this.config.email}:${this.config.apiToken}`).toString('base64')}`
       }
     });
 
@@ -154,7 +151,8 @@ export class HttpClient {
           url,
           data,
           headers: options.headers,
-          timeout: options.timeout
+          timeout: options.timeout,
+          params: options.params
         };
 
         const response = await this.axiosInstance.request<T>(config);
@@ -390,9 +388,7 @@ export class HttpClient {
     // Update axios instance
     this.axiosInstance.defaults.baseURL = this.config.baseUrl;
     this.axiosInstance.defaults.timeout = this.config.timeout;
-    this.axiosInstance.defaults.auth = {
-      username: this.config.email,
-      password: this.config.apiToken
-    };
+    this.axiosInstance.defaults.headers['Authorization'] = 
+      `Basic ${Buffer.from(`${this.config.email}:${this.config.apiToken}`).toString('base64')}`;
   }
 }

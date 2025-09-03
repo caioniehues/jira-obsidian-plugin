@@ -14,9 +14,15 @@ if [ ! -f "package.json" ] || [ ! -f "main.js" ]; then
 fi
 
 # Get Obsidian vault path
-echo "📁 Please enter the path to your Obsidian vault:"
+DEFAULT_VAULT="/home/caio/Documents/Obsidian/personal"
+echo "📁 Obsidian vault path (press Enter for default: $DEFAULT_VAULT):"
 echo "   (e.g., /home/username/Documents/MyVault)"
 read -p "Vault path: " VAULT_PATH
+
+# Use default if empty
+if [ -z "$VAULT_PATH" ]; then
+    VAULT_PATH="$DEFAULT_VAULT"
+fi
 
 # Check if vault exists
 if [ ! -d "$VAULT_PATH" ]; then

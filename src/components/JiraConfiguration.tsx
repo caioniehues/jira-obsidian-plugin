@@ -69,9 +69,24 @@ export const JiraConfiguration: React.FC = () => {
       const result = await jiraService.testConnection(credentials.masterPassword);
       setTestResult(result);
     } catch (error) {
+      // Enhanced error handling with specific messages
+      let message = 'Connection test failed';
+      if (error instanceof Error) {
+        if (error.message.includes('401') || error.message.includes('403')) {
+          message = 'Authentication failed. Please verify your email and API token are correct.';
+        } else if (error.message.includes('Invalid password')) {
+          message = 'Invalid master password. Please enter the correct password used to encrypt your credentials.';
+        } else if (error.message.includes('No credentials stored')) {
+          message = 'No credentials found. Please save your configuration first.';
+        } else if (error.message.includes('Network')) {
+          message = 'Network error. Please check your internet connection and Jira server URL.';
+        } else {
+          message = error.message;
+        }
+      }
       setTestResult({ 
         success: false, 
-        message: error instanceof Error ? error.message : 'Connection test failed' 
+        message
       });
     } finally {
       setIsTesting(false);
@@ -154,7 +169,15 @@ export const JiraConfiguration: React.FC = () => {
               onChange={(e) => setCredentials(prev => ({ ...prev, apiToken: e.target.value }))}
             />
             <p className="text-xs text-muted-foreground mt-1">
-              Generate an API token from your JIRA account settings
+              Generate an API token from{' '}
+              <a 
+                href="https://id.atlassian.com/manage-profile/security/api-tokens" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
+              >
+                your Atlassian account settings
+              </a>
             </p>
           </div>
 

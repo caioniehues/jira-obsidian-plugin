@@ -266,3 +266,61 @@ export type JiraServiceError =
   | AuthenticationError 
   | RateLimitError 
   | ValidationError;
+
+// Configuration Management Types
+export interface JiraCredentials {
+  email: string;
+  apiToken: string;
+  serverUrl: string;
+}
+
+export interface EncryptedCredentials {
+  encrypted: string;
+  iv: string;
+  salt: string;
+}
+
+export interface PluginConfiguration {
+  version: string;
+  credentials?: EncryptedCredentials;
+  settings: {
+    cacheEnabled: boolean;
+    cacheTTL: number;
+    rateLimit: {
+      requestsPerMinute: number;
+      burstLimit: number;
+    };
+    ui: {
+      theme: 'auto' | 'light' | 'dark';
+      defaultView: string;
+      refreshInterval: number;
+    };
+  };
+  metadata: {
+    lastUpdated: string;
+    lastSync: string;
+    deviceId: string;
+  };
+}
+
+export interface ConfigurationError {
+  code: string;
+  message: string;
+  timestamp: string;
+  details?: any;
+}
+
+export interface ConfigurationSaveOptions {
+  skipSync?: boolean;
+  backup?: boolean;
+}
+
+export interface ConnectionTestResult {
+  success: boolean;
+  message: string;
+  details?: {
+    serverVersion?: string;
+    accountId?: string;
+    displayName?: string;
+  };
+}
