@@ -1,4 +1,4 @@
-import { Plugin, WorkspaceLeaf, Notice, Modal, Setting } from 'obsidian';
+import { Plugin, WorkspaceLeaf, Notice, Modal, Setting, MarkdownView } from 'obsidian';
 import { JiraView, VIEW_TYPE_JIRA_DASHBOARD } from './views/JiraView';
 import { AuthManager } from './services/AuthManager';
 import { JiraApiService } from './services/jiraApiService';
@@ -6,6 +6,7 @@ import { ObsidianHttpClient } from './services/ObsidianHttpClient';
 import { RateLimiter } from './services/rateLimiter';
 import { JiraSettingsTab } from './settings/SettingsTab';
 import { NoteSyncService } from './services/NoteSyncService';
+import { BidirectionalSyncService } from './services/BidirectionalSyncService';
 import { createIssueKey } from './services/types';
 
 export default class JiraDashboardPlugin extends Plugin {
@@ -14,6 +15,7 @@ export default class JiraDashboardPlugin extends Plugin {
   httpClient!: ObsidianHttpClient;
   rateLimiter!: RateLimiter;
   noteSyncService!: NoteSyncService;
+  bidirectionalSyncService!: BidirectionalSyncService;
 
   async onload() {
     console.log('Loading Jira Dashboard plugin');
@@ -46,6 +48,13 @@ export default class JiraDashboardPlugin extends Plugin {
       this.app,
       this.app.vault,
       this.jiraService
+    );
+
+    // Initialize BidirectionalSyncService
+    this.bidirectionalSyncService = new BidirectionalSyncService(
+      this.app,
+      this.jiraService,
+      this.noteSyncService
     );
 
     // Register settings tab
@@ -108,6 +117,31 @@ export default class JiraDashboardPlugin extends Plugin {
       }
     });
 
+    // Add command to sync current note to JIRA
+    this.addCommand({
+      id: 'sync-current-note-to-jira',
+      name: 'Sync Current Note to JIRA',
+      checkCallback: (checking: boolean) => {
+        // Only available when viewing a markdown file with jira-key
+        const activeView = this.app.workspace.getActiveViewOfType(MarkdownView);
+        if (!activeView) return false;
+        
+        const file = activeView.file;
+        if (!file) return false;
+        
+        const frontmatter = this.app.metadataCache.getFileCache(file)?.frontmatter;
+        const hasJiraKey = frontmatter?.['jira-key'];
+        
+        if (checking) {
+          return hasJiraKey;
+        }
+        
+        if (hasJiraKey) {
+          this.bidirectionalSyncService.syncNoteToJira(file);
+        }
+      }
+    });
+
     // Add command to configure Jira connection
     this.addCommand({
       id: 'configure-jira-connection',
@@ -128,6 +162,7 @@ export default class JiraDashboardPlugin extends Plugin {
     console.log('Unloading Jira Dashboard plugin');
     // Clean up any resources
     this.jiraService.destroy();
+    this.bidirectionalSyncService.destroy();
     // Do NOT clear credentials on unload - we want them to persist!
   }
 
