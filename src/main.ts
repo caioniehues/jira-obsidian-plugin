@@ -142,6 +142,31 @@ export default class JiraDashboardPlugin extends Plugin {
       }
     });
 
+    // Add command to add comment to JIRA issue
+    this.addCommand({
+      id: 'add-jira-comment',
+      name: 'Add Comment to JIRA Issue',
+      checkCallback: (checking: boolean) => {
+        // Check if we're viewing a JIRA note
+        const activeView = this.app.workspace.getActiveViewOfType(MarkdownView);
+        if (!activeView) return false;
+        
+        const file = activeView.file;
+        if (!file) return false;
+        
+        const frontmatter = this.app.metadataCache.getFileCache(file)?.frontmatter;
+        const hasJiraKey = frontmatter?.['jira-key'];
+        
+        if (checking) {
+          return hasJiraKey;
+        }
+        
+        if (hasJiraKey) {
+          this.promptForComment(frontmatter['jira-key']);
+        }
+      }
+    });
+
     // Add command to configure Jira connection
     this.addCommand({
       id: 'configure-jira-connection',
@@ -274,5 +299,64 @@ export default class JiraDashboardPlugin extends Plugin {
       
       modal.open();
     });
+  }
+
+  async promptForComment(issueKey: string): Promise<void> {
+    const modal = new Modal(this.app);
+    modal.titleEl.setText(`Add Comment to ${issueKey}`);
+    
+    let commentText = '';
+    
+    new Setting(modal.contentEl)
+      .setName('Comment')
+      .setDesc('Enter your comment for the JIRA issue')
+      .addTextArea((text: any) => {
+        text.setPlaceholder('Enter your comment here...')
+          .setValue(commentText)
+          .onChange((value: string) => {
+            commentText = value;
+          });
+        text.inputEl.rows = 5;
+        text.inputEl.cols = 50;
+        // Focus the input field
+        setTimeout(() => text.inputEl.focus(), 10);
+      });
+    
+    new Setting(modal.contentEl)
+      .addButton((btn: any) => btn
+        .setButtonText('Add Comment')
+        .setCta()
+        .onClick(async () => {
+          if (commentText.trim()) {
+            modal.close();
+            try {
+              await this.jiraService.addComment(
+                createIssueKey(issueKey),
+                { body: commentText }
+              );
+              new Notice(`✓ Comment added to ${issueKey}`);
+              
+              // Optionally refresh the current note
+              const activeView = this.app.workspace.getActiveViewOfType(MarkdownView);
+              if (activeView?.file) {
+                await this.noteSyncService.syncIssueToNote(
+                  createIssueKey(issueKey),
+                  { overwrite: true }
+                );
+              }
+            } catch (error) {
+              new Notice(`Failed to add comment: ${error instanceof Error ? error.message : 'Unknown error'}`);
+            }
+          } else {
+            new Notice('Comment cannot be empty');
+          }
+        }))
+      .addButton((btn: any) => btn
+        .setButtonText('Cancel')
+        .onClick(() => {
+          modal.close();
+        }));
+    
+    modal.open();
   }
 }

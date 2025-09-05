@@ -54,6 +54,26 @@ export class NoteSyncService {
         };
       }
 
+      // Fetch comments for the issue
+      try {
+        const commentsResult = await this.jiraService.getComments(issueKey);
+        if (commentsResult && commentsResult.comments) {
+          // Convert comment bodies to Obsidian markdown
+          const processedComments = commentsResult.comments.map(comment => ({
+            ...comment,
+            body: this.convertMarkdown(comment.body),
+            created_formatted: new Date(comment.created).toLocaleString(),
+            updated_formatted: new Date(comment.updated).toLocaleString()
+          }));
+          // Add comments to the issue fields for template processing
+          (issue.fields as any).comments = processedComments;
+        }
+      } catch (error) {
+        console.warn(`Failed to fetch comments for ${issueKey}:`, error);
+        // Continue without comments if fetching fails
+        (issue.fields as any).comments = [];
+      }
+
       // Convert JIRA description to Obsidian markdown
       if (issue.fields.description) {
         issue.fields.description = this.convertMarkdown(issue.fields.description);

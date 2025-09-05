@@ -22,7 +22,11 @@ import {
   ProjectKey,
   UserId,
   JiraServiceError,
-  RateLimitError
+  RateLimitError,
+  JiraComment,
+  JiraCommentsResult,
+  CreateCommentRequest,
+  UpdateCommentRequest
 } from './types';
 
 export interface JiraApiServiceConfig {
@@ -373,6 +377,41 @@ export class JiraApiService {
     this.requestDeduplicationMap.set(cacheKey, requestPromise);
 
     return requestPromise;
+  }
+
+  /**
+   * Get comments for an issue
+   */
+  async getComments(issueIdOrKey: string | IssueKey): Promise<JiraCommentsResult> {
+    const cacheKey = `getComments:${issueIdOrKey}`;
+    return this.deduplicateRequest(cacheKey, async () => {
+      await this.checkRateLimit();
+      return await this.httpClient.get(`/rest/api/3/issue/${issueIdOrKey}/comment`);
+    });
+  }
+
+  /**
+   * Add a comment to an issue
+   */
+  async addComment(issueIdOrKey: string | IssueKey, comment: CreateCommentRequest): Promise<JiraComment> {
+    await this.checkRateLimit();
+    return await this.httpClient.post(`/rest/api/3/issue/${issueIdOrKey}/comment`, comment);
+  }
+
+  /**
+   * Update an existing comment
+   */
+  async updateComment(issueIdOrKey: string | IssueKey, commentId: string, comment: UpdateCommentRequest): Promise<JiraComment> {
+    await this.checkRateLimit();
+    return await this.httpClient.put(`/rest/api/3/issue/${issueIdOrKey}/comment/${commentId}`, comment);
+  }
+
+  /**
+   * Delete a comment
+   */
+  async deleteComment(issueIdOrKey: string | IssueKey, commentId: string): Promise<void> {
+    await this.checkRateLimit();
+    return await this.httpClient.delete(`/rest/api/3/issue/${issueIdOrKey}/comment/${commentId}`);
   }
 
   /**

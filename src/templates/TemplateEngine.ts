@@ -97,9 +97,15 @@ _No description provided_
 ## Notes
 <!-- Add your notes here -->
 
-{{#if includeComments}}
 ## Comments
-<!-- Comments will be populated here -->
+{{#if comments}}
+{{#each comments}}
+### {{author.displayName}} - {{created_formatted}}
+{{body}}
+
+{{/each}}
+{{else}}
+_No comments yet_
 {{/if}}
 
 {{#if includeWorklog}}

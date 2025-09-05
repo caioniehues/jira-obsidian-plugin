@@ -324,3 +324,41 @@ export interface ConnectionTestResult {
     displayName?: string;
   };
 }
+
+// Comment interfaces
+export interface JiraComment {
+  id: string;
+  self: string;
+  author: JiraUser;
+  body: string;
+  updateAuthor?: JiraUser;
+  created: string;
+  updated: string;
+  visibility?: {
+    type: 'group' | 'role';
+    value: string;
+  };
+}
+
+export interface JiraCommentsResult {
+  startAt: number;
+  maxResults: number;
+  total: number;
+  comments: JiraComment[];
+}
+
+export interface CreateCommentRequest {
+  body: string;
+  visibility?: {
+    type: 'group' | 'role';
+    value: string;
+  };
+}
+
+export interface UpdateCommentRequest {
+  body: string;
+  visibility?: {
+    type: 'group' | 'role';
+    value: string;
+  };
+}
