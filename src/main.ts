@@ -1,15 +1,21 @@
-import { Plugin, WorkspaceLeaf } from 'obsidian';
+import { Plugin, WorkspaceLeaf, Notice, Modal, Setting, MarkdownView } from 'obsidian';
 import { JiraView, VIEW_TYPE_JIRA_DASHBOARD } from './views/JiraView';
 import { AuthManager } from './services/AuthManager';
 import { JiraApiService } from './services/jiraApiService';
 import { ObsidianHttpClient } from './services/ObsidianHttpClient';
 import { RateLimiter } from './services/rateLimiter';
+import { JiraSettingsTab } from './settings/SettingsTab';
+import { NoteSyncService } from './services/NoteSyncService';
+import { BidirectionalSyncService } from './services/BidirectionalSyncService';
+import { createIssueKey } from './services/types';
 
 export default class JiraDashboardPlugin extends Plugin {
   authManager!: AuthManager;
   jiraService!: JiraApiService;
   httpClient!: ObsidianHttpClient;
   rateLimiter!: RateLimiter;
+  noteSyncService!: NoteSyncService;
+  bidirectionalSyncService!: BidirectionalSyncService;
 
   async onload() {
     console.log('Loading Jira Dashboard plugin');
@@ -37,6 +43,23 @@ export default class JiraDashboardPlugin extends Plugin {
       this.rateLimiter
     );
 
+    // Initialize NoteSyncService
+    this.noteSyncService = new NoteSyncService(
+      this.app,
+      this.app.vault,
+      this.jiraService
+    );
+
+    // Initialize BidirectionalSyncService
+    this.bidirectionalSyncService = new BidirectionalSyncService(
+      this.app,
+      this.jiraService,
+      this.noteSyncService
+    );
+
+    // Register settings tab
+    this.addSettingTab(new JiraSettingsTab(this.app, this));
+
     // Register the view
     this.registerView(
       VIEW_TYPE_JIRA_DASHBOARD,
@@ -57,13 +80,105 @@ export default class JiraDashboardPlugin extends Plugin {
       }
     });
 
+    // Add command to sync single issue
+    this.addCommand({
+      id: 'sync-jira-issue',
+      name: 'Sync JIRA Issue to Note',
+      callback: async () => {
+        // Prompt for issue key
+        const issueKey = await this.promptForIssueKey();
+        if (issueKey) {
+          const result = await this.noteSyncService.syncIssueToNote(
+            createIssueKey(issueKey),
+            { showProgress: true }
+          );
+          if (result.success) {
+            new Notice(`Issue synced to ${result.notePath}`);
+          } else {
+            new Notice(`Failed to sync: ${result.error}`);
+          }
+        }
+      }
+    });
+
+    // Add command to sync from JQL
+    this.addCommand({
+      id: 'sync-jira-jql',
+      name: 'Sync JIRA Issues from JQL Query',
+      callback: async () => {
+        // Prompt for JQL
+        const jql = await this.promptForJQL();
+        if (jql) {
+          const result = await this.noteSyncService.syncFromJQL(jql, {
+            showProgress: true
+          });
+          new Notice(`Synced ${result.succeeded}/${result.total} issues`);
+        }
+      }
+    });
+
+    // Add command to sync current note to JIRA
+    this.addCommand({
+      id: 'sync-current-note-to-jira',
+      name: 'Sync Current Note to JIRA',
+      checkCallback: (checking: boolean) => {
+        // Only available when viewing a markdown file with jira-key
+        const activeView = this.app.workspace.getActiveViewOfType(MarkdownView);
+        if (!activeView) return false;
+        
+        const file = activeView.file;
+        if (!file) return false;
+        
+        const frontmatter = this.app.metadataCache.getFileCache(file)?.frontmatter;
+        const hasJiraKey = frontmatter?.['jira-key'];
+        
+        if (checking) {
+          return hasJiraKey;
+        }
+        
+        if (hasJiraKey) {
+          this.bidirectionalSyncService.syncNoteToJira(file);
+        }
+      }
+    });
+
+    // Add command to add comment to JIRA issue
+    this.addCommand({
+      id: 'add-jira-comment',
+      name: 'Add Comment to JIRA Issue',
+      checkCallback: (checking: boolean) => {
+        // Check if we're viewing a JIRA note
+        const activeView = this.app.workspace.getActiveViewOfType(MarkdownView);
+        if (!activeView) return false;
+        
+        const file = activeView.file;
+        if (!file) return false;
+        
+        const frontmatter = this.app.metadataCache.getFileCache(file)?.frontmatter;
+        const hasJiraKey = frontmatter?.['jira-key'];
+        
+        if (checking) {
+          return hasJiraKey;
+        }
+        
+        if (hasJiraKey) {
+          this.promptForComment(frontmatter['jira-key']);
+        }
+      }
+    });
+
     // Add command to configure Jira connection
     this.addCommand({
       id: 'configure-jira-connection',
       name: 'Configure Jira Connection',
       callback: () => {
-        // This will open settings tab in the future
-        console.log('Opening Jira settings...');
+        // Open the settings tab
+        // @ts-ignore - Obsidian's internal API
+        const setting = (this.app as any).setting;
+        if (setting) {
+          setting.open();
+          setting.openTabById(this.manifest.id);
+        }
       }
     });
   }
@@ -72,6 +187,7 @@ export default class JiraDashboardPlugin extends Plugin {
     console.log('Unloading Jira Dashboard plugin');
     // Clean up any resources
     this.jiraService.destroy();
+    this.bidirectionalSyncService.destroy();
     // Do NOT clear credentials on unload - we want them to persist!
   }
 
@@ -97,5 +213,150 @@ export default class JiraDashboardPlugin extends Plugin {
     if (leaf) {
       workspace.revealLeaf(leaf);
     }
+  }
+
+  async promptForIssueKey(): Promise<string | null> {
+    return new Promise((resolve) => {
+      const modal = new Modal(this.app);
+      modal.titleEl.setText('Sync JIRA Issue');
+      
+      let inputValue = '';
+      
+      new Setting(modal.contentEl)
+        .setName('Issue Key')
+        .setDesc('Enter the JIRA issue key (e.g., PROJ-123)')
+        .addText((text: any) => {
+          text.setPlaceholder('PROJ-123')
+            .setValue(inputValue)
+            .onChange((value: string) => {
+              inputValue = value;
+            });
+          text.inputEl.addEventListener('keypress', (e: KeyboardEvent) => {
+            if (e.key === 'Enter') {
+              modal.close();
+              resolve(inputValue || null);
+            }
+          });
+          // Focus the input field
+          setTimeout(() => text.inputEl.focus(), 10);
+        });
+      
+      new Setting(modal.contentEl)
+        .addButton((btn: any) => btn
+          .setButtonText('Sync')
+          .setCta()
+          .onClick(() => {
+            modal.close();
+            resolve(inputValue || null);
+          }))
+        .addButton((btn: any) => btn
+          .setButtonText('Cancel')
+          .onClick(() => {
+            modal.close();
+            resolve(null);
+          }));
+      
+      modal.open();
+    });
+  }
+
+  async promptForJQL(): Promise<string | null> {
+    return new Promise((resolve) => {
+      const modal = new Modal(this.app);
+      modal.titleEl.setText('Sync JIRA Issues from JQL');
+      
+      let inputValue = 'assignee = currentUser() AND status != Done';
+      
+      new Setting(modal.contentEl)
+        .setName('JQL Query')
+        .setDesc('Enter a JQL query to find issues')
+        .addTextArea((text: any) => {
+          text.setPlaceholder('project = PROJ AND status = "In Progress"')
+            .setValue(inputValue)
+            .onChange((value: string) => {
+              inputValue = value;
+            });
+          text.inputEl.rows = 3;
+          text.inputEl.cols = 50;
+          // Focus the input field
+          setTimeout(() => text.inputEl.focus(), 10);
+        });
+      
+      new Setting(modal.contentEl)
+        .addButton((btn: any) => btn
+          .setButtonText('Sync')
+          .setCta()
+          .onClick(() => {
+            modal.close();
+            resolve(inputValue || null);
+          }))
+        .addButton((btn: any) => btn
+          .setButtonText('Cancel')
+          .onClick(() => {
+            modal.close();
+            resolve(null);
+          }));
+      
+      modal.open();
+    });
+  }
+
+  async promptForComment(issueKey: string): Promise<void> {
+    const modal = new Modal(this.app);
+    modal.titleEl.setText(`Add Comment to ${issueKey}`);
+    
+    let commentText = '';
+    
+    new Setting(modal.contentEl)
+      .setName('Comment')
+      .setDesc('Enter your comment for the JIRA issue')
+      .addTextArea((text: any) => {
+        text.setPlaceholder('Enter your comment here...')
+          .setValue(commentText)
+          .onChange((value: string) => {
+            commentText = value;
+          });
+        text.inputEl.rows = 5;
+        text.inputEl.cols = 50;
+        // Focus the input field
+        setTimeout(() => text.inputEl.focus(), 10);
+      });
+    
+    new Setting(modal.contentEl)
+      .addButton((btn: any) => btn
+        .setButtonText('Add Comment')
+        .setCta()
+        .onClick(async () => {
+          if (commentText.trim()) {
+            modal.close();
+            try {
+              await this.jiraService.addComment(
+                createIssueKey(issueKey),
+                { body: commentText }
+              );
+              new Notice(`✓ Comment added to ${issueKey}`);
+              
+              // Optionally refresh the current note
+              const activeView = this.app.workspace.getActiveViewOfType(MarkdownView);
+              if (activeView?.file) {
+                await this.noteSyncService.syncIssueToNote(
+                  createIssueKey(issueKey),
+                  { overwrite: true }
+                );
+              }
+            } catch (error) {
+              new Notice(`Failed to add comment: ${error instanceof Error ? error.message : 'Unknown error'}`);
+            }
+          } else {
+            new Notice('Comment cannot be empty');
+          }
+        }))
+      .addButton((btn: any) => btn
+        .setButtonText('Cancel')
+        .onClick(() => {
+          modal.close();
+        }));
+    
+    modal.open();
   }
 }

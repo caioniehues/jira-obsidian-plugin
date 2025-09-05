@@ -5,6 +5,9 @@ yarn-debug.log*
 yarn-error.log*
 
 # Build outputs
+main.js
+main.js.map
+main.js.LICENSE.txt
 dist/
 build/
 *.tsbuildinfo

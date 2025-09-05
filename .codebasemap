@@ -1,0 +1,4361 @@
+{
+  "metadata": {
+    "version": 1,
+    "root": "/Users/caio.niehues/CodeProjects/jira-obsidian-plugin",
+    "createdAt": "2025-09-04T08:10:51.962Z",
+    "updatedAt": "2025-09-04T08:10:51.962Z",
+    "totalFiles": 40
+  },
+  "tree": {
+    "name": "jira-obsidian-plugin",
+    "type": "dir",
+    "children": [
+      {
+        "name": "src",
+        "type": "dir",
+        "children": [
+          {
+            "name": "components",
+            "type": "dir",
+            "children": [
+              {
+                "name": "ui",
+                "type": "dir",
+                "children": [
+                  {
+                    "name": "alert.tsx",
+                    "type": "file"
+                  },
+                  {
+                    "name": "badge.tsx",
+                    "type": "file"
+                  },
+                  {
+                    "name": "button.tsx",
+                    "type": "file"
+                  },
+                  {
+                    "name": "card.tsx",
+                    "type": "file"
+                  },
+                  {
+                    "name": "input.tsx",
+                    "type": "file"
+                  },
+                  {
+                    "name": "select.tsx",
+                    "type": "file"
+                  },
+                  {
+                    "name": "spinner.tsx",
+                    "type": "file"
+                  }
+                ]
+              },
+              {
+                "name": "FilterBar.tsx",
+                "type": "file"
+              },
+              {
+                "name": "JiraConfiguration.tsx",
+                "type": "file"
+              },
+              {
+                "name": "JiraDashboard.tsx",
+                "type": "file"
+              },
+              {
+                "name": "ObsidianThemeProvider.tsx",
+                "type": "file"
+              },
+              {
+                "name": "StatusColumn.tsx",
+                "type": "file"
+              },
+              {
+                "name": "TaskCard.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "contexts",
+            "type": "dir",
+            "children": [
+              {
+                "name": "JiraServiceContext.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "hooks",
+            "type": "dir",
+            "children": [
+              {
+                "name": "useJiraOperations.ts",
+                "type": "file"
+              },
+              {
+                "name": "useTemplateManager.ts",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "lib",
+            "type": "dir",
+            "children": [
+              {
+                "name": "utils.ts",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "services",
+            "type": "dir",
+            "children": [
+              {
+                "name": "__tests__",
+                "type": "dir",
+                "children": [
+                  {
+                    "name": "ConfigurationManager.test.ts",
+                    "type": "file"
+                  },
+                  {
+                    "name": "httpClient.simple.test.ts",
+                    "type": "file"
+                  },
+                  {
+                    "name": "jiraApiService.integration.test.ts",
+                    "type": "file"
+                  },
+                  {
+                    "name": "jiraApiService.test.ts",
+                    "type": "file"
+                  }
+                ]
+              },
+              {
+                "name": "AuthManager.ts",
+                "type": "file"
+              },
+              {
+                "name": "BidirectionalSyncService.ts",
+                "type": "file"
+              },
+              {
+                "name": "ConfigurationManager.ts",
+                "type": "file"
+              },
+              {
+                "name": "httpClient.ts",
+                "type": "file"
+              },
+              {
+                "name": "jiraApiService.ts",
+                "type": "file"
+              },
+              {
+                "name": "NoteSyncService.ts",
+                "type": "file"
+              },
+              {
+                "name": "ObsidianHttpClient.ts",
+                "type": "file"
+              },
+              {
+                "name": "rateLimiter.ts",
+                "type": "file"
+              },
+              {
+                "name": "types.ts",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "settings",
+            "type": "dir",
+            "children": [
+              {
+                "name": "SettingsTab.ts",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "templates",
+            "type": "dir",
+            "children": [
+              {
+                "name": "TemplateEngine.ts",
+                "type": "file"
+              },
+              {
+                "name": "TemplateManager.ts",
+                "type": "file"
+              },
+              {
+                "name": "types.ts",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "views",
+            "type": "dir",
+            "children": [
+              {
+                "name": "JiraView.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "main.ts",
+            "type": "file"
+          },
+          {
+            "name": "setupTests.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "jest.config.js",
+        "type": "file"
+      },
+      {
+        "name": "main.js",
+        "type": "file"
+      },
+      {
+        "name": "webpack.config.js",
+        "type": "file"
+      }
+    ]
+  },
+  "nodes": [
+    "jest.config.js",
+    "main.js",
+    "src/components/FilterBar.tsx",
+    "src/components/JiraConfiguration.tsx",
+    "src/components/JiraDashboard.tsx",
+    "src/components/ObsidianThemeProvider.tsx",
+    "src/components/StatusColumn.tsx",
+    "src/components/TaskCard.tsx",
+    "src/components/ui/alert.tsx",
+    "src/components/ui/badge.tsx",
+    "src/components/ui/button.tsx",
+    "src/components/ui/card.tsx",
+    "src/components/ui/input.tsx",
+    "src/components/ui/select.tsx",
+    "src/components/ui/spinner.tsx",
+    "src/contexts/JiraServiceContext.tsx",
+    "src/hooks/useJiraOperations.ts",
+    "src/hooks/useTemplateManager.ts",
+    "src/lib/utils.ts",
+    "src/main.ts",
+    "src/services/AuthManager.ts",
+    "src/services/BidirectionalSyncService.ts",
+    "src/services/ConfigurationManager.ts",
+    "src/services/NoteSyncService.ts",
+    "src/services/ObsidianHttpClient.ts",
+    "src/services/__tests__/ConfigurationManager.test.ts",
+    "src/services/__tests__/httpClient.simple.test.ts",
+    "src/services/__tests__/jiraApiService.integration.test.ts",
+    "src/services/__tests__/jiraApiService.test.ts",
+    "src/services/httpClient.ts",
+    "src/services/jiraApiService.ts",
+    "src/services/rateLimiter.ts",
+    "src/services/types.ts",
+    "src/settings/SettingsTab.ts",
+    "src/setupTests.ts",
+    "src/templates/TemplateEngine.ts",
+    "src/templates/TemplateManager.ts",
+    "src/templates/types.ts",
+    "src/views/JiraView.tsx",
+    "webpack.config.js"
+  ],
+  "edges": [
+    {
+      "from": "src/components/FilterBar.tsx",
+      "to": "src/components/ui/button.tsx"
+    },
+    {
+      "from": "src/components/FilterBar.tsx",
+      "to": "src/components/ui/card.tsx"
+    },
+    {
+      "from": "src/components/FilterBar.tsx",
+      "to": "src/components/ui/input.tsx"
+    },
+    {
+      "from": "src/components/FilterBar.tsx",
+      "to": "src/components/ui/select.tsx"
+    },
+    {
+      "from": "src/components/JiraConfiguration.tsx",
+      "to": "src/components/ui/alert.tsx"
+    },
+    {
+      "from": "src/components/JiraConfiguration.tsx",
+      "to": "src/components/ui/badge.tsx"
+    },
+    {
+      "from": "src/components/JiraConfiguration.tsx",
+      "to": "src/components/ui/button.tsx"
+    },
+    {
+      "from": "src/components/JiraConfiguration.tsx",
+      "to": "src/components/ui/card.tsx"
+    },
+    {
+      "from": "src/components/JiraConfiguration.tsx",
+      "to": "src/components/ui/input.tsx"
+    },
+    {
+      "from": "src/components/JiraConfiguration.tsx",
+      "to": "src/components/ui/spinner.tsx"
+    },
+    {
+      "from": "src/components/JiraConfiguration.tsx",
+      "to": "src/contexts/JiraServiceContext.tsx"
+    },
+    {
+      "from": "src/components/JiraDashboard.tsx",
+      "to": "src/components/FilterBar.tsx"
+    },
+    {
+      "from": "src/components/JiraDashboard.tsx",
+      "to": "src/components/JiraConfiguration.tsx"
+    },
+    {
+      "from": "src/components/JiraDashboard.tsx",
+      "to": "src/components/StatusColumn.tsx"
+    },
+    {
+      "from": "src/components/JiraDashboard.tsx",
+      "to": "src/components/TaskCard.tsx"
+    },
+    {
+      "from": "src/components/JiraDashboard.tsx",
+      "to": "src/components/ui/alert.tsx"
+    },
+    {
+      "from": "src/components/JiraDashboard.tsx",
+      "to": "src/components/ui/badge.tsx"
+    },
+    {
+      "from": "src/components/JiraDashboard.tsx",
+      "to": "src/components/ui/button.tsx"
+    },
+    {
+      "from": "src/components/JiraDashboard.tsx",
+      "to": "src/components/ui/card.tsx"
+    },
+    {
+      "from": "src/components/JiraDashboard.tsx",
+      "to": "src/components/ui/spinner.tsx"
+    },
+    {
+      "from": "src/components/JiraDashboard.tsx",
+      "to": "src/contexts/JiraServiceContext.tsx"
+    },
+    {
+      "from": "src/components/JiraDashboard.tsx",
+      "to": "src/hooks/useJiraOperations.ts"
+    },
+    {
+      "from": "src/components/JiraDashboard.tsx",
+      "to": "src/main.ts"
+    },
+    {
+      "from": "src/components/StatusColumn.tsx",
+      "to": "src/components/JiraDashboard.tsx"
+    },
+    {
+      "from": "src/components/StatusColumn.tsx",
+      "to": "src/components/TaskCard.tsx"
+    },
+    {
+      "from": "src/components/StatusColumn.tsx",
+      "to": "src/components/ui/badge.tsx"
+    },
+    {
+      "from": "src/components/TaskCard.tsx",
+      "to": "src/components/JiraDashboard.tsx"
+    },
+    {
+      "from": "src/components/TaskCard.tsx",
+      "to": "src/components/ui/badge.tsx"
+    },
+    {
+      "from": "src/components/TaskCard.tsx",
+      "to": "src/components/ui/card.tsx"
+    },
+    {
+      "from": "src/contexts/JiraServiceContext.tsx",
+      "to": "src/main.ts"
+    },
+    {
+      "from": "src/contexts/JiraServiceContext.tsx",
+      "to": "src/services/jiraApiService.ts"
+    },
+    {
+      "from": "src/hooks/useJiraOperations.ts",
+      "to": "src/contexts/JiraServiceContext.tsx"
+    },
+    {
+      "from": "src/hooks/useJiraOperations.ts",
+      "to": "src/services/types.ts"
+    },
+    {
+      "from": "src/hooks/useTemplateManager.ts",
+      "to": "src/services/types.ts"
+    },
+    {
+      "from": "src/hooks/useTemplateManager.ts",
+      "to": "src/templates/TemplateManager.ts"
+    },
+    {
+      "from": "src/hooks/useTemplateManager.ts",
+      "to": "src/templates/types.ts"
+    },
+    {
+      "from": "src/main.ts",
+      "to": "src/services/AuthManager.ts"
+    },
+    {
+      "from": "src/main.ts",
+      "to": "src/services/BidirectionalSyncService.ts"
+    },
+    {
+      "from": "src/main.ts",
+      "to": "src/services/NoteSyncService.ts"
+    },
+    {
+      "from": "src/main.ts",
+      "to": "src/services/ObsidianHttpClient.ts"
+    },
+    {
+      "from": "src/main.ts",
+      "to": "src/services/jiraApiService.ts"
+    },
+    {
+      "from": "src/main.ts",
+      "to": "src/services/rateLimiter.ts"
+    },
+    {
+      "from": "src/main.ts",
+      "to": "src/services/types.ts"
+    },
+    {
+      "from": "src/main.ts",
+      "to": "src/settings/SettingsTab.ts"
+    },
+    {
+      "from": "src/main.ts",
+      "to": "src/views/JiraView.tsx"
+    },
+    {
+      "from": "src/services/BidirectionalSyncService.ts",
+      "to": "src/services/NoteSyncService.ts"
+    },
+    {
+      "from": "src/services/BidirectionalSyncService.ts",
+      "to": "src/services/jiraApiService.ts"
+    },
+    {
+      "from": "src/services/BidirectionalSyncService.ts",
+      "to": "src/services/types.ts"
+    },
+    {
+      "from": "src/services/ConfigurationManager.ts",
+      "to": "src/services/types.ts"
+    },
+    {
+      "from": "src/services/NoteSyncService.ts",
+      "to": "src/services/jiraApiService.ts"
+    },
+    {
+      "from": "src/services/NoteSyncService.ts",
+      "to": "src/services/types.ts"
+    },
+    {
+      "from": "src/services/NoteSyncService.ts",
+      "to": "src/templates/TemplateManager.ts"
+    },
+    {
+      "from": "src/services/ObsidianHttpClient.ts",
+      "to": "src/services/types.ts"
+    },
+    {
+      "from": "src/services/__tests__/ConfigurationManager.test.ts",
+      "to": "src/services/ConfigurationManager.ts"
+    },
+    {
+      "from": "src/services/__tests__/ConfigurationManager.test.ts",
+      "to": "src/services/types.ts"
+    },
+    {
+      "from": "src/services/__tests__/httpClient.simple.test.ts",
+      "to": "src/services/httpClient.ts"
+    },
+    {
+      "from": "src/services/__tests__/jiraApiService.integration.test.ts",
+      "to": "src/services/AuthManager.ts"
+    },
+    {
+      "from": "src/services/__tests__/jiraApiService.integration.test.ts",
+      "to": "src/services/httpClient.ts"
+    },
+    {
+      "from": "src/services/__tests__/jiraApiService.integration.test.ts",
+      "to": "src/services/jiraApiService.ts"
+    },
+    {
+      "from": "src/services/__tests__/jiraApiService.integration.test.ts",
+      "to": "src/services/rateLimiter.ts"
+    },
+    {
+      "from": "src/services/__tests__/jiraApiService.integration.test.ts",
+      "to": "src/services/types.ts"
+    },
+    {
+      "from": "src/services/__tests__/jiraApiService.test.ts",
+      "to": "src/services/AuthManager.ts"
+    },
+    {
+      "from": "src/services/__tests__/jiraApiService.test.ts",
+      "to": "src/services/httpClient.ts"
+    },
+    {
+      "from": "src/services/__tests__/jiraApiService.test.ts",
+      "to": "src/services/jiraApiService.ts"
+    },
+    {
+      "from": "src/services/__tests__/jiraApiService.test.ts",
+      "to": "src/services/rateLimiter.ts"
+    },
+    {
+      "from": "src/services/__tests__/jiraApiService.test.ts",
+      "to": "src/services/types.ts"
+    },
+    {
+      "from": "src/services/httpClient.ts",
+      "to": "src/services/rateLimiter.ts"
+    },
+    {
+      "from": "src/services/httpClient.ts",
+      "to": "src/services/types.ts"
+    },
+    {
+      "from": "src/services/jiraApiService.ts",
+      "to": "src/services/AuthManager.ts"
+    },
+    {
+      "from": "src/services/jiraApiService.ts",
+      "to": "src/services/ObsidianHttpClient.ts"
+    },
+    {
+      "from": "src/services/jiraApiService.ts",
+      "to": "src/services/rateLimiter.ts"
+    },
+    {
+      "from": "src/services/jiraApiService.ts",
+      "to": "src/services/types.ts"
+    },
+    {
+      "from": "src/settings/SettingsTab.ts",
+      "to": "src/main.ts"
+    },
+    {
+      "from": "src/settings/SettingsTab.ts",
+      "to": "src/services/AuthManager.ts"
+    },
+    {
+      "from": "src/templates/TemplateEngine.ts",
+      "to": "src/services/types.ts"
+    },
+    {
+      "from": "src/templates/TemplateManager.ts",
+      "to": "src/services/types.ts"
+    },
+    {
+      "from": "src/templates/TemplateManager.ts",
+      "to": "src/templates/TemplateEngine.ts"
+    },
+    {
+      "from": "src/templates/TemplateManager.ts",
+      "to": "src/templates/types.ts"
+    },
+    {
+      "from": "src/views/JiraView.tsx",
+      "to": "src/components/JiraDashboard.tsx"
+    },
+    {
+      "from": "src/views/JiraView.tsx",
+      "to": "src/components/ObsidianThemeProvider.tsx"
+    },
+    {
+      "from": "src/views/JiraView.tsx",
+      "to": "src/contexts/JiraServiceContext.tsx"
+    },
+    {
+      "from": "src/views/JiraView.tsx",
+      "to": "src/main.ts"
+    }
+  ],
+  "files": {
+    "jest.config.js": {
+      "imports": [],
+      "dependencies": [],
+      "functions": [],
+      "classes": [],
+      "constants": []
+    },
+    "main.js": {
+      "imports": [
+        {
+          "from": "obsidian",
+          "kind": "require"
+        }
+      ],
+      "dependencies": [],
+      "functions": [],
+      "classes": [],
+      "constants": []
+    },
+    "src/components/FilterBar.tsx": {
+      "imports": [
+        {
+          "from": "react",
+          "kind": "import",
+          "isDefault": true,
+          "imported": [
+            "useState"
+          ]
+        },
+        {
+          "from": "./ui/input",
+          "kind": "import",
+          "imported": [
+            "Input"
+          ]
+        },
+        {
+          "from": "./ui/button",
+          "kind": "import",
+          "imported": [
+            "Button"
+          ]
+        },
+        {
+          "from": "./ui/select",
+          "kind": "import",
+          "imported": [
+            "Select",
+            "SelectContent",
+            "SelectItem",
+            "SelectTrigger",
+            "SelectValue"
+          ]
+        },
+        {
+          "from": "./ui/card",
+          "kind": "import",
+          "imported": [
+            "Card",
+            "CardContent"
+          ]
+        }
+      ],
+      "dependencies": [
+        "src/components/ui/button.tsx",
+        "src/components/ui/card.tsx",
+        "src/components/ui/input.tsx",
+        "src/components/ui/select.tsx"
+      ],
+      "functions": [],
+      "classes": [],
+      "constants": [
+        {
+          "name": "FilterBar",
+          "initKind": "function",
+          "isExported": true,
+          "type": "React.FC<FilterBarProps>"
+        }
+      ]
+    },
+    "src/components/JiraConfiguration.tsx": {
+      "imports": [
+        {
+          "from": "react",
+          "kind": "import",
+          "isDefault": true,
+          "imported": [
+            "useState"
+          ]
+        },
+        {
+          "from": "../contexts/JiraServiceContext",
+          "kind": "import",
+          "imported": [
+            "useJiraService"
+          ]
+        },
+        {
+          "from": "./ui/card",
+          "kind": "import",
+          "imported": [
+            "Card",
+            "CardHeader",
+            "CardTitle",
+            "CardContent"
+          ]
+        },
+        {
+          "from": "./ui/button",
+          "kind": "import",
+          "imported": [
+            "Button"
+          ]
+        },
+        {
+          "from": "./ui/input",
+          "kind": "import",
+          "imported": [
+            "Input"
+          ]
+        },
+        {
+          "from": "./ui/alert",
+          "kind": "import",
+          "imported": [
+            "Alert",
+            "AlertTitle",
+            "AlertDescription"
+          ]
+        },
+        {
+          "from": "./ui/spinner",
+          "kind": "import",
+          "imported": [
+            "Spinner"
+          ]
+        },
+        {
+          "from": "./ui/badge",
+          "kind": "import",
+          "imported": [
+            "Badge"
+          ]
+        }
+      ],
+      "dependencies": [
+        "src/components/ui/alert.tsx",
+        "src/components/ui/badge.tsx",
+        "src/components/ui/button.tsx",
+        "src/components/ui/card.tsx",
+        "src/components/ui/input.tsx",
+        "src/components/ui/spinner.tsx",
+        "src/contexts/JiraServiceContext.tsx"
+      ],
+      "functions": [],
+      "classes": [],
+      "constants": [
+        {
+          "name": "JiraConfiguration",
+          "initKind": "function",
+          "isExported": true,
+          "type": "React.FC"
+        }
+      ]
+    },
+    "src/components/JiraDashboard.tsx": {
+      "imports": [
+        {
+          "from": "react",
+          "kind": "import",
+          "isDefault": true,
+          "imported": [
+            "useState"
+          ]
+        },
+        {
+          "from": "@tanstack/react-query",
+          "kind": "import",
+          "imported": [
+            "useQuery"
+          ]
+        },
+        {
+          "from": "../main",
+          "kind": "import",
+          "isDefault": true
+        },
+        {
+          "from": "./TaskCard",
+          "kind": "import",
+          "imported": [
+            "TaskCard"
+          ]
+        },
+        {
+          "from": "./FilterBar",
+          "kind": "import",
+          "imported": [
+            "FilterBar"
+          ]
+        },
+        {
+          "from": "./StatusColumn",
+          "kind": "import",
+          "imported": [
+            "StatusColumn"
+          ]
+        },
+        {
+          "from": "./JiraConfiguration",
+          "kind": "import",
+          "imported": [
+            "JiraConfiguration"
+          ]
+        },
+        {
+          "from": "./ui/spinner",
+          "kind": "import",
+          "imported": [
+            "Spinner"
+          ]
+        },
+        {
+          "from": "./ui/alert",
+          "kind": "import",
+          "imported": [
+            "Alert",
+            "AlertTitle",
+            "AlertDescription"
+          ]
+        },
+        {
+          "from": "./ui/button",
+          "kind": "import",
+          "imported": [
+            "Button"
+          ]
+        },
+        {
+          "from": "./ui/badge",
+          "kind": "import",
+          "imported": [
+            "Badge"
+          ]
+        },
+        {
+          "from": "./ui/card",
+          "kind": "import",
+          "imported": [
+            "Card",
+            "CardHeader",
+            "CardTitle",
+            "CardContent"
+          ]
+        },
+        {
+          "from": "../hooks/useJiraOperations",
+          "kind": "import",
+          "imported": [
+            "useJiraIssues",
+            "useJiraUser"
+          ]
+        },
+        {
+          "from": "../contexts/JiraServiceContext",
+          "kind": "import",
+          "imported": [
+            "useJiraService"
+          ]
+        }
+      ],
+      "dependencies": [
+        "src/components/FilterBar.tsx",
+        "src/components/JiraConfiguration.tsx",
+        "src/components/StatusColumn.tsx",
+        "src/components/TaskCard.tsx",
+        "src/components/ui/alert.tsx",
+        "src/components/ui/badge.tsx",
+        "src/components/ui/button.tsx",
+        "src/components/ui/card.tsx",
+        "src/components/ui/spinner.tsx",
+        "src/contexts/JiraServiceContext.tsx",
+        "src/hooks/useJiraOperations.ts",
+        "src/main.ts"
+      ],
+      "functions": [],
+      "classes": [],
+      "constants": [
+        {
+          "name": "JiraDashboard",
+          "initKind": "function",
+          "isExported": true,
+          "type": "React.FC<JiraDashboardProps>"
+        }
+      ]
+    },
+    "src/components/ObsidianThemeProvider.tsx": {
+      "imports": [
+        {
+          "from": "react",
+          "kind": "import",
+          "isDefault": true,
+          "imported": [
+            "useEffect",
+            "useState"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "functions": [],
+      "classes": [],
+      "constants": [
+        {
+          "name": "ObsidianThemeProvider",
+          "initKind": "function",
+          "isExported": true,
+          "type": "React.FC<ObsidianThemeProviderProps>"
+        }
+      ]
+    },
+    "src/components/StatusColumn.tsx": {
+      "imports": [
+        {
+          "from": "react",
+          "kind": "import",
+          "isDefault": true
+        },
+        {
+          "from": "./JiraDashboard",
+          "kind": "import",
+          "imported": [
+            "JiraTask"
+          ]
+        },
+        {
+          "from": "./TaskCard",
+          "kind": "import",
+          "imported": [
+            "TaskCard"
+          ]
+        },
+        {
+          "from": "./ui/badge",
+          "kind": "import",
+          "imported": [
+            "Badge"
+          ]
+        },
+        {
+          "from": "@/lib/utils",
+          "kind": "import",
+          "imported": [
+            "cn"
+          ]
+        }
+      ],
+      "dependencies": [
+        "src/components/JiraDashboard.tsx",
+        "src/components/TaskCard.tsx",
+        "src/components/ui/badge.tsx"
+      ],
+      "functions": [],
+      "classes": [],
+      "constants": [
+        {
+          "name": "StatusColumn",
+          "initKind": "function",
+          "isExported": true,
+          "type": "React.FC<StatusColumnProps>"
+        }
+      ]
+    },
+    "src/components/TaskCard.tsx": {
+      "imports": [
+        {
+          "from": "react",
+          "kind": "import",
+          "isDefault": true
+        },
+        {
+          "from": "./JiraDashboard",
+          "kind": "import",
+          "imported": [
+            "JiraTask"
+          ]
+        },
+        {
+          "from": "./ui/card",
+          "kind": "import",
+          "imported": [
+            "Card",
+            "CardHeader",
+            "CardContent",
+            "CardFooter"
+          ]
+        },
+        {
+          "from": "./ui/badge",
+          "kind": "import",
+          "imported": [
+            "Badge"
+          ]
+        },
+        {
+          "from": "@/lib/utils",
+          "kind": "import",
+          "imported": [
+            "cn"
+          ]
+        }
+      ],
+      "dependencies": [
+        "src/components/JiraDashboard.tsx",
+        "src/components/ui/badge.tsx",
+        "src/components/ui/card.tsx"
+      ],
+      "functions": [],
+      "classes": [],
+      "constants": [
+        {
+          "name": "TaskCard",
+          "initKind": "function",
+          "isExported": true,
+          "type": "React.FC<TaskCardProps>"
+        }
+      ]
+    },
+    "src/components/ui/alert.tsx": {
+      "imports": [
+        {
+          "from": "react",
+          "kind": "import",
+          "isNamespace": true
+        },
+        {
+          "from": "class-variance-authority",
+          "kind": "import",
+          "imported": [
+            "cva",
+            "VariantProps"
+          ]
+        },
+        {
+          "from": "@/lib/utils",
+          "kind": "import",
+          "imported": [
+            "cn"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "functions": [],
+      "classes": [],
+      "constants": [
+        {
+          "name": "alertVariants",
+          "initKind": "unknown",
+          "isExported": false
+        },
+        {
+          "name": "Alert",
+          "initKind": "unknown",
+          "isExported": false
+        },
+        {
+          "name": "AlertTitle",
+          "initKind": "unknown",
+          "isExported": false
+        },
+        {
+          "name": "AlertDescription",
+          "initKind": "unknown",
+          "isExported": false
+        }
+      ]
+    },
+    "src/components/ui/badge.tsx": {
+      "imports": [
+        {
+          "from": "react",
+          "kind": "import",
+          "isNamespace": true
+        },
+        {
+          "from": "class-variance-authority",
+          "kind": "import",
+          "imported": [
+            "cva",
+            "VariantProps"
+          ]
+        },
+        {
+          "from": "@/lib/utils",
+          "kind": "import",
+          "imported": [
+            "cn"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "functions": [
+        {
+          "name": "Badge",
+          "params": [
+            {
+              "name": "unknown",
+              "type": "BadgeProps"
+            }
+          ],
+          "isAsync": false,
+          "isExported": false
+        }
+      ],
+      "classes": [],
+      "constants": [
+        {
+          "name": "badgeVariants",
+          "initKind": "unknown",
+          "isExported": false
+        }
+      ]
+    },
+    "src/components/ui/button.tsx": {
+      "imports": [
+        {
+          "from": "react",
+          "kind": "import",
+          "isNamespace": true
+        },
+        {
+          "from": "@radix-ui/react-slot",
+          "kind": "import",
+          "imported": [
+            "Slot"
+          ]
+        },
+        {
+          "from": "class-variance-authority",
+          "kind": "import",
+          "imported": [
+            "cva",
+            "VariantProps"
+          ]
+        },
+        {
+          "from": "@/lib/utils",
+          "kind": "import",
+          "imported": [
+            "cn"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "functions": [],
+      "classes": [],
+      "constants": [
+        {
+          "name": "buttonVariants",
+          "initKind": "unknown",
+          "isExported": false
+        },
+        {
+          "name": "Button",
+          "initKind": "unknown",
+          "isExported": false
+        }
+      ]
+    },
+    "src/components/ui/card.tsx": {
+      "imports": [
+        {
+          "from": "react",
+          "kind": "import",
+          "isNamespace": true
+        },
+        {
+          "from": "@/lib/utils",
+          "kind": "import",
+          "imported": [
+            "cn"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "functions": [],
+      "classes": [],
+      "constants": [
+        {
+          "name": "Card",
+          "initKind": "unknown",
+          "isExported": false
+        },
+        {
+          "name": "CardHeader",
+          "initKind": "unknown",
+          "isExported": false
+        },
+        {
+          "name": "CardTitle",
+          "initKind": "unknown",
+          "isExported": false
+        },
+        {
+          "name": "CardDescription",
+          "initKind": "unknown",
+          "isExported": false
+        },
+        {
+          "name": "CardContent",
+          "initKind": "unknown",
+          "isExported": false
+        },
+        {
+          "name": "CardFooter",
+          "initKind": "unknown",
+          "isExported": false
+        }
+      ]
+    },
+    "src/components/ui/input.tsx": {
+      "imports": [
+        {
+          "from": "react",
+          "kind": "import",
+          "isNamespace": true
+        },
+        {
+          "from": "@/lib/utils",
+          "kind": "import",
+          "imported": [
+            "cn"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "functions": [],
+      "classes": [],
+      "constants": [
+        {
+          "name": "Input",
+          "initKind": "unknown",
+          "isExported": false
+        }
+      ]
+    },
+    "src/components/ui/select.tsx": {
+      "imports": [
+        {
+          "from": "react",
+          "kind": "import",
+          "isNamespace": true
+        },
+        {
+          "from": "@radix-ui/react-select",
+          "kind": "import",
+          "isNamespace": true
+        },
+        {
+          "from": "@/lib/utils",
+          "kind": "import",
+          "imported": [
+            "cn"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "functions": [],
+      "classes": [],
+      "constants": [
+        {
+          "name": "Select",
+          "initKind": "unknown",
+          "isExported": false
+        },
+        {
+          "name": "SelectGroup",
+          "initKind": "unknown",
+          "isExported": false
+        },
+        {
+          "name": "SelectValue",
+          "initKind": "unknown",
+          "isExported": false
+        },
+        {
+          "name": "SelectTrigger",
+          "initKind": "unknown",
+          "isExported": false
+        },
+        {
+          "name": "SelectScrollUpButton",
+          "initKind": "unknown",
+          "isExported": false
+        },
+        {
+          "name": "SelectScrollDownButton",
+          "initKind": "unknown",
+          "isExported": false
+        },
+        {
+          "name": "SelectContent",
+          "initKind": "unknown",
+          "isExported": false
+        },
+        {
+          "name": "SelectLabel",
+          "initKind": "unknown",
+          "isExported": false
+        },
+        {
+          "name": "SelectItem",
+          "initKind": "unknown",
+          "isExported": false
+        },
+        {
+          "name": "SelectSeparator",
+          "initKind": "unknown",
+          "isExported": false
+        }
+      ]
+    },
+    "src/components/ui/spinner.tsx": {
+      "imports": [
+        {
+          "from": "react",
+          "kind": "import",
+          "isNamespace": true
+        },
+        {
+          "from": "@/lib/utils",
+          "kind": "import",
+          "imported": [
+            "cn"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "functions": [],
+      "classes": [],
+      "constants": [
+        {
+          "name": "Default",
+          "initKind": "function",
+          "isExported": false
+        },
+        {
+          "name": "Ring",
+          "initKind": "function",
+          "isExported": false
+        },
+        {
+          "name": "Ellipsis",
+          "initKind": "function",
+          "isExported": false
+        },
+        {
+          "name": "Spinner",
+          "initKind": "function",
+          "isExported": true
+        }
+      ]
+    },
+    "src/contexts/JiraServiceContext.tsx": {
+      "imports": [
+        {
+          "from": "react",
+          "kind": "import",
+          "isDefault": true,
+          "imported": [
+            "createContext",
+            "useContext",
+            "ReactNode"
+          ]
+        },
+        {
+          "from": "../services/jiraApiService",
+          "kind": "import",
+          "imported": [
+            "JiraApiService"
+          ]
+        },
+        {
+          "from": "../main",
+          "kind": "import",
+          "isDefault": true
+        }
+      ],
+      "dependencies": [
+        "src/main.ts",
+        "src/services/jiraApiService.ts"
+      ],
+      "functions": [],
+      "classes": [],
+      "constants": [
+        {
+          "name": "JiraServiceContext",
+          "initKind": "unknown",
+          "isExported": false
+        },
+        {
+          "name": "JiraServiceProvider",
+          "initKind": "function",
+          "isExported": true,
+          "type": "React.FC<JiraServiceProviderProps>"
+        },
+        {
+          "name": "useJiraService",
+          "initKind": "function",
+          "isExported": true
+        }
+      ]
+    },
+    "src/hooks/useJiraOperations.ts": {
+      "imports": [
+        {
+          "from": "@tanstack/react-query",
+          "kind": "import",
+          "imported": [
+            "useQuery",
+            "useMutation",
+            "useQueryClient"
+          ]
+        },
+        {
+          "from": "../contexts/JiraServiceContext",
+          "kind": "import",
+          "imported": [
+            "useJiraService"
+          ]
+        },
+        {
+          "from": "../services/types",
+          "kind": "import",
+          "imported": [
+            "JiraIssue",
+            "JiraProject",
+            "JiraUser",
+            "JiraSearchResult",
+            "JiraSearchParams",
+            "JiraTransition",
+            "JiraTransitionRequest",
+            "IssueKey",
+            "createIssueKey"
+          ]
+        }
+      ],
+      "dependencies": [
+        "src/contexts/JiraServiceContext.tsx",
+        "src/services/types.ts"
+      ],
+      "functions": [],
+      "classes": [],
+      "constants": [
+        {
+          "name": "transformJiraIssue",
+          "initKind": "function",
+          "isExported": false
+        },
+        {
+          "name": "useJiraIssues",
+          "initKind": "function",
+          "isExported": true
+        },
+        {
+          "name": "useJiraProjects",
+          "initKind": "function",
+          "isExported": true
+        },
+        {
+          "name": "useJiraUser",
+          "initKind": "function",
+          "isExported": true
+        },
+        {
+          "name": "useJiraTransitions",
+          "initKind": "function",
+          "isExported": true
+        },
+        {
+          "name": "useUpdateJiraIssue",
+          "initKind": "function",
+          "isExported": true
+        },
+        {
+          "name": "useTransitionJiraIssue",
+          "initKind": "function",
+          "isExported": true
+        },
+        {
+          "name": "useCreateJiraIssue",
+          "initKind": "function",
+          "isExported": true
+        },
+        {
+          "name": "useBatchUpdateJiraIssues",
+          "initKind": "function",
+          "isExported": true
+        }
+      ]
+    },
+    "src/hooks/useTemplateManager.ts": {
+      "imports": [
+        {
+          "from": "react",
+          "kind": "import",
+          "imported": [
+            "useState",
+            "useCallback",
+            "useEffect"
+          ]
+        },
+        {
+          "from": "obsidian",
+          "kind": "import",
+          "imported": [
+            "App"
+          ]
+        },
+        {
+          "from": "../templates/TemplateManager",
+          "kind": "import",
+          "imported": [
+            "TemplateManager"
+          ]
+        },
+        {
+          "from": "../templates/types",
+          "kind": "import",
+          "imported": [
+            "TemplateSettings",
+            "NoteCreationOptions",
+            "CreatedNote"
+          ]
+        },
+        {
+          "from": "../services/types",
+          "kind": "import",
+          "imported": [
+            "JiraIssue"
+          ]
+        }
+      ],
+      "dependencies": [
+        "src/services/types.ts",
+        "src/templates/TemplateManager.ts",
+        "src/templates/types.ts"
+      ],
+      "functions": [
+        {
+          "name": "useTemplateManager",
+          "params": [
+            {
+              "name": "app",
+              "type": "App | null"
+            }
+          ],
+          "isAsync": false,
+          "isExported": true,
+          "returnType": "UseTemplateManagerResult"
+        }
+      ],
+      "classes": [],
+      "constants": []
+    },
+    "src/lib/utils.ts": {
+      "imports": [
+        {
+          "from": "clsx",
+          "kind": "import",
+          "imported": [
+            "ClassValue",
+            "clsx"
+          ]
+        },
+        {
+          "from": "tailwind-merge",
+          "kind": "import",
+          "imported": [
+            "twMerge"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "functions": [
+        {
+          "name": "cn",
+          "params": [
+            {
+              "name": "inputs",
+              "type": "ClassValue[]",
+              "rest": true
+            }
+          ],
+          "isAsync": false,
+          "isExported": true
+        }
+      ],
+      "classes": [],
+      "constants": []
+    },
+    "src/main.ts": {
+      "imports": [
+        {
+          "from": "obsidian",
+          "kind": "import",
+          "imported": [
+            "Plugin",
+            "WorkspaceLeaf",
+            "Notice",
+            "Modal",
+            "Setting",
+            "MarkdownView"
+          ]
+        },
+        {
+          "from": "./views/JiraView",
+          "kind": "import",
+          "imported": [
+            "JiraView",
+            "VIEW_TYPE_JIRA_DASHBOARD"
+          ]
+        },
+        {
+          "from": "./services/AuthManager",
+          "kind": "import",
+          "imported": [
+            "AuthManager"
+          ]
+        },
+        {
+          "from": "./services/jiraApiService",
+          "kind": "import",
+          "imported": [
+            "JiraApiService"
+          ]
+        },
+        {
+          "from": "./services/ObsidianHttpClient",
+          "kind": "import",
+          "imported": [
+            "ObsidianHttpClient"
+          ]
+        },
+        {
+          "from": "./services/rateLimiter",
+          "kind": "import",
+          "imported": [
+            "RateLimiter"
+          ]
+        },
+        {
+          "from": "./settings/SettingsTab",
+          "kind": "import",
+          "imported": [
+            "JiraSettingsTab"
+          ]
+        },
+        {
+          "from": "./services/NoteSyncService",
+          "kind": "import",
+          "imported": [
+            "NoteSyncService"
+          ]
+        },
+        {
+          "from": "./services/BidirectionalSyncService",
+          "kind": "import",
+          "imported": [
+            "BidirectionalSyncService"
+          ]
+        },
+        {
+          "from": "./services/types",
+          "kind": "import",
+          "imported": [
+            "createIssueKey"
+          ]
+        }
+      ],
+      "dependencies": [
+        "src/services/AuthManager.ts",
+        "src/services/BidirectionalSyncService.ts",
+        "src/services/NoteSyncService.ts",
+        "src/services/ObsidianHttpClient.ts",
+        "src/services/jiraApiService.ts",
+        "src/services/rateLimiter.ts",
+        "src/services/types.ts",
+        "src/settings/SettingsTab.ts",
+        "src/views/JiraView.tsx"
+      ],
+      "functions": [],
+      "classes": [
+        {
+          "name": "JiraDashboardPlugin",
+          "isExported": true,
+          "methods": [
+            {
+              "name": "onload",
+              "params": [],
+              "isAsync": true
+            },
+            {
+              "name": "onunload",
+              "params": [],
+              "isAsync": true
+            },
+            {
+              "name": "activateView",
+              "params": [],
+              "isAsync": true
+            },
+            {
+              "name": "promptForIssueKey",
+              "params": [],
+              "isAsync": true,
+              "returnType": "Promise<string | null>"
+            },
+            {
+              "name": "promptForJQL",
+              "params": [],
+              "isAsync": true,
+              "returnType": "Promise<string | null>"
+            },
+            {
+              "name": "promptForComment",
+              "params": [
+                {
+                  "name": "issueKey",
+                  "type": "string"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<void>"
+            }
+          ],
+          "properties": [
+            {
+              "name": "authManager",
+              "type": "AuthManager"
+            },
+            {
+              "name": "jiraService",
+              "type": "JiraApiService"
+            },
+            {
+              "name": "httpClient",
+              "type": "ObsidianHttpClient"
+            },
+            {
+              "name": "rateLimiter",
+              "type": "RateLimiter"
+            },
+            {
+              "name": "noteSyncService",
+              "type": "NoteSyncService"
+            },
+            {
+              "name": "bidirectionalSyncService",
+              "type": "BidirectionalSyncService"
+            }
+          ],
+          "extends": "Plugin"
+        }
+      ],
+      "constants": []
+    },
+    "src/services/AuthManager.ts": {
+      "imports": [
+        {
+          "from": "obsidian",
+          "kind": "import",
+          "imported": [
+            "Plugin",
+            "requestUrl"
+          ]
+        }
+      ],
+      "dependencies": [],
+      "functions": [],
+      "classes": [
+        {
+          "name": "AuthManager",
+          "isExported": true,
+          "methods": [
+            {
+              "name": "encryptCredentials",
+              "params": [
+                {
+                  "name": "credentials",
+                  "type": "JiraCredentials"
+                },
+                {
+                  "name": "masterPassword",
+                  "type": "string"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<EncryptedData>"
+            },
+            {
+              "name": "decryptCredentials",
+              "params": [
+                {
+                  "name": "encryptedData",
+                  "type": "EncryptedData"
+                },
+                {
+                  "name": "masterPassword",
+                  "type": "string"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<JiraCredentials>"
+            },
+            {
+              "name": "deriveKey",
+              "params": [
+                {
+                  "name": "password",
+                  "type": "string"
+                },
+                {
+                  "name": "salt",
+                  "type": "Uint8Array"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<CryptoKey>",
+              "isPrivate": true
+            },
+            {
+              "name": "validateCredentials",
+              "params": [
+                {
+                  "name": "credentials",
+                  "type": "JiraCredentials"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<boolean>"
+            },
+            {
+              "name": "storeCredentials",
+              "params": [
+                {
+                  "name": "encryptedData",
+                  "type": "EncryptedData"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<void>"
+            },
+            {
+              "name": "getStoredCredentials",
+              "params": [],
+              "isAsync": true,
+              "returnType": "Promise<EncryptedData | null>"
+            },
+            {
+              "name": "clearCredentials",
+              "params": [],
+              "isAsync": true,
+              "returnType": "Promise<void>"
+            },
+            {
+              "name": "getDeviceFingerprint",
+              "params": [],
+              "isAsync": true,
+              "returnType": "Promise<string>"
+            },
+            {
+              "name": "bufferToBase64",
+              "params": [
+                {
+                  "name": "buffer",
+                  "type": "ArrayBuffer | Uint8Array"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "string",
+              "isPrivate": true
+            },
+            {
+              "name": "base64ToBuffer",
+              "params": [
+                {
+                  "name": "base64",
+                  "type": "string"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "ArrayBuffer",
+              "isPrivate": true
+            },
+            {
+              "name": "testConnection",
+              "params": [
+                {
+                  "name": "masterPassword",
+                  "type": "string"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<{ success: boolean; message: string }>"
+            }
+          ],
+          "properties": [
+            {
+              "name": "plugin",
+              "type": "Plugin",
+              "isPrivate": true
+            },
+            {
+              "name": "encryptionKey",
+              "type": "CryptoKey | null",
+              "isPrivate": true
+            }
+          ]
+        }
+      ],
+      "constants": []
+    },
+    "src/services/BidirectionalSyncService.ts": {
+      "imports": [
+        {
+          "from": "./jiraApiService",
+          "kind": "import"
+        },
+        {
+          "from": "./types",
+          "kind": "import"
+        },
+        {
+          "from": "./NoteSyncService",
+          "kind": "import"
+        },
+        {
+          "from": "moment",
+          "kind": "import"
+        }
+      ],
+      "dependencies": [
+        "src/services/NoteSyncService.ts",
+        "src/services/jiraApiService.ts",
+        "src/services/types.ts"
+      ],
+      "functions": [],
+      "classes": [],
+      "constants": []
+    },
+    "src/services/ConfigurationManager.ts": {
+      "imports": [
+        {
+          "from": "obsidian",
+          "kind": "import",
+          "imported": [
+            "Plugin",
+            "Notice"
+          ]
+        },
+        {
+          "from": "zod",
+          "kind": "import",
+          "imported": [
+            "z"
+          ]
+        },
+        {
+          "from": "events",
+          "kind": "import",
+          "imported": [
+            "EventEmitter"
+          ]
+        },
+        {
+          "from": "./types",
+          "kind": "import",
+          "imported": [
+            "PluginConfiguration",
+            "JiraCredentials",
+            "EncryptedCredentials",
+            "ConfigurationError",
+            "ConfigurationSaveOptions",
+            "ConnectionTestResult"
+          ]
+        }
+      ],
+      "dependencies": [
+        "src/services/types.ts"
+      ],
+      "functions": [],
+      "classes": [
+        {
+          "name": "ConfigurationManager",
+          "isExported": true,
+          "methods": [
+            {
+              "name": "loadConfiguration",
+              "params": [],
+              "isAsync": true,
+              "returnType": "Promise<PluginConfiguration>"
+            },
+            {
+              "name": "saveConfiguration",
+              "params": [
+                {
+                  "name": "config",
+                  "type": "PluginConfiguration"
+                },
+                {
+                  "name": "options",
+                  "type": "ConfigurationSaveOptions"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<void>"
+            },
+            {
+              "name": "updateCredentials",
+              "params": [
+                {
+                  "name": "credentials",
+                  "type": "JiraCredentials"
+                },
+                {
+                  "name": "masterPassword",
+                  "type": "string"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<void>"
+            },
+            {
+              "name": "validateConnection",
+              "params": [
+                {
+                  "name": "masterPassword",
+                  "type": "string"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<ConnectionTestResult>"
+            },
+            {
+              "name": "getDefaultConfiguration",
+              "params": [],
+              "isAsync": true,
+              "returnType": "Promise<PluginConfiguration>"
+            },
+            {
+              "name": "encryptCredentials",
+              "params": [
+                {
+                  "name": "credentials",
+                  "type": "JiraCredentials"
+                },
+                {
+                  "name": "masterPassword",
+                  "type": "string"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<EncryptedCredentials>",
+              "isPrivate": true
+            },
+            {
+              "name": "decryptCredentials",
+              "params": [
+                {
+                  "name": "encryptedData",
+                  "type": "EncryptedCredentials"
+                },
+                {
+                  "name": "masterPassword",
+                  "type": "string"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<JiraCredentials>",
+              "isPrivate": true
+            },
+            {
+              "name": "deriveKey",
+              "params": [
+                {
+                  "name": "password",
+                  "type": "string"
+                },
+                {
+                  "name": "salt",
+                  "type": "Uint8Array"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<CryptoKey>",
+              "isPrivate": true
+            },
+            {
+              "name": "validateConfiguration",
+              "params": [
+                {
+                  "name": "config",
+                  "type": "any"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<PluginConfiguration>",
+              "isPrivate": true
+            },
+            {
+              "name": "migrate",
+              "params": [
+                {
+                  "name": "data",
+                  "type": "any"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<PluginConfiguration>",
+              "isPrivate": true
+            },
+            {
+              "name": "migrateFromV0",
+              "params": [
+                {
+                  "name": "data",
+                  "type": "any"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<PluginConfiguration>",
+              "isPrivate": true
+            },
+            {
+              "name": "migrateFromV1",
+              "params": [
+                {
+                  "name": "data",
+                  "type": "any"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<PluginConfiguration>",
+              "isPrivate": true
+            },
+            {
+              "name": "createBackup",
+              "params": [
+                {
+                  "name": "config",
+                  "type": "any"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<void>",
+              "isPrivate": true
+            },
+            {
+              "name": "scheduleSyncToDashboard",
+              "params": [
+                {
+                  "name": "config",
+                  "type": "PluginConfiguration"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "void",
+              "isPrivate": true
+            },
+            {
+              "name": "syncToDashboard",
+              "params": [
+                {
+                  "name": "config",
+                  "type": "PluginConfiguration"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<void>",
+              "isPrivate": true
+            },
+            {
+              "name": "generateDeviceId",
+              "params": [],
+              "isAsync": true,
+              "returnType": "Promise<string>",
+              "isPrivate": true
+            },
+            {
+              "name": "bufferToBase64",
+              "params": [
+                {
+                  "name": "buffer",
+                  "type": "ArrayBuffer"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "string",
+              "isPrivate": true
+            },
+            {
+              "name": "base64ToBuffer",
+              "params": [
+                {
+                  "name": "base64",
+                  "type": "string"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "ArrayBuffer",
+              "isPrivate": true
+            },
+            {
+              "name": "createError",
+              "params": [
+                {
+                  "name": "code",
+                  "type": "string"
+                },
+                {
+                  "name": "message",
+                  "type": "string"
+                },
+                {
+                  "name": "cause",
+                  "type": "any",
+                  "optional": true
+                }
+              ],
+              "isAsync": false,
+              "returnType": "ConfigurationError"
+            },
+            {
+              "name": "clearCache",
+              "params": [],
+              "isAsync": false,
+              "returnType": "void"
+            },
+            {
+              "name": "destroy",
+              "params": [],
+              "isAsync": false,
+              "returnType": "void"
+            }
+          ],
+          "properties": [
+            {
+              "name": "plugin",
+              "type": "Plugin",
+              "isPrivate": true
+            },
+            {
+              "name": "configCache",
+              "type": "PluginConfiguration | null",
+              "isPrivate": true
+            },
+            {
+              "name": "encryptionKey",
+              "type": "CryptoKey | null",
+              "isPrivate": true
+            },
+            {
+              "name": "syncDebounceTimer",
+              "type": "NodeJS.Timeout | null",
+              "isPrivate": true
+            }
+          ],
+          "extends": "EventEmitter"
+        }
+      ],
+      "constants": [
+        {
+          "name": "PluginConfigurationSchema",
+          "initKind": "unknown",
+          "isExported": false
+        }
+      ]
+    },
+    "src/services/NoteSyncService.ts": {
+      "imports": [
+        {
+          "from": "obsidian",
+          "kind": "import",
+          "imported": [
+            "App",
+            "Notice",
+            "TFile",
+            "TFolder",
+            "Vault",
+            "normalizePath"
+          ]
+        },
+        {
+          "from": "./jiraApiService",
+          "kind": "import",
+          "imported": [
+            "JiraApiService"
+          ]
+        },
+        {
+          "from": "./types",
+          "kind": "import",
+          "imported": [
+            "JiraIssue",
+            "IssueKey"
+          ]
+        },
+        {
+          "from": "../templates/TemplateManager",
+          "kind": "import",
+          "imported": [
+            "TemplateManager"
+          ]
+        }
+      ],
+      "dependencies": [
+        "src/services/jiraApiService.ts",
+        "src/services/types.ts",
+        "src/templates/TemplateManager.ts"
+      ],
+      "functions": [],
+      "classes": [
+        {
+          "name": "NoteSyncService",
+          "isExported": true,
+          "methods": [
+            {
+              "name": "syncIssueToNote",
+              "params": [
+                {
+                  "name": "issueKey",
+                  "type": "IssueKey"
+                },
+                {
+                  "name": "options",
+                  "type": "SyncOptions"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<SyncResult>"
+            },
+            {
+              "name": "bulkSyncIssues",
+              "params": [
+                {
+                  "name": "issueKeys",
+                  "type": "IssueKey[]"
+                },
+                {
+                  "name": "options",
+                  "type": "SyncOptions"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<BulkSyncResult>"
+            },
+            {
+              "name": "syncFromJQL",
+              "params": [
+                {
+                  "name": "jql",
+                  "type": "string"
+                },
+                {
+                  "name": "options",
+                  "type": "SyncOptions"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<BulkSyncResult>"
+            },
+            {
+              "name": "getFolderPath",
+              "params": [
+                {
+                  "name": "issue",
+                  "type": "JiraIssue"
+                },
+                {
+                  "name": "baseFolder",
+                  "type": "string",
+                  "optional": true
+                }
+              ],
+              "isAsync": false,
+              "returnType": "string",
+              "isPrivate": true
+            },
+            {
+              "name": "ensureFolder",
+              "params": [
+                {
+                  "name": "folderPath",
+                  "type": "string"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<void>",
+              "isPrivate": true
+            },
+            {
+              "name": "convertMarkdown",
+              "params": [
+                {
+                  "name": "jiraText",
+                  "type": "string"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "string",
+              "isPrivate": true
+            }
+          ],
+          "properties": [
+            {
+              "name": "templateManager",
+              "type": "TemplateManager",
+              "isPrivate": true
+            }
+          ]
+        }
+      ],
+      "constants": []
+    },
+    "src/services/ObsidianHttpClient.ts": {
+      "imports": [
+        {
+          "from": "obsidian",
+          "kind": "import",
+          "imported": [
+            "requestUrl",
+            "RequestUrlParam",
+            "RequestUrlResponse"
+          ]
+        },
+        {
+          "from": "./types",
+          "kind": "import",
+          "imported": [
+            "JiraApiError",
+            "NetworkError",
+            "AuthenticationError",
+            "RateLimitError",
+            "JiraServiceError"
+          ]
+        }
+      ],
+      "dependencies": [
+        "src/services/types.ts"
+      ],
+      "functions": [],
+      "classes": [
+        {
+          "name": "ObsidianHttpClient",
+          "isExported": true,
+          "methods": [
+            {
+              "name": "get",
+              "params": [
+                {
+                  "name": "url",
+                  "type": "string"
+                },
+                {
+                  "name": "options",
+                  "type": "RequestOptions"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<T>"
+            },
+            {
+              "name": "post",
+              "params": [
+                {
+                  "name": "url",
+                  "type": "string"
+                },
+                {
+                  "name": "data",
+                  "type": "any",
+                  "optional": true
+                },
+                {
+                  "name": "options",
+                  "type": "RequestOptions"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<T>"
+            },
+            {
+              "name": "put",
+              "params": [
+                {
+                  "name": "url",
+                  "type": "string"
+                },
+                {
+                  "name": "data",
+                  "type": "any",
+                  "optional": true
+                },
+                {
+                  "name": "options",
+                  "type": "RequestOptions"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<T>"
+            },
+            {
+              "name": "delete",
+              "params": [
+                {
+                  "name": "url",
+                  "type": "string"
+                },
+                {
+                  "name": "options",
+                  "type": "RequestOptions"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<T>"
+            },
+            {
+              "name": "request",
+              "params": [
+                {
+                  "name": "method",
+                  "type": "string"
+                },
+                {
+                  "name": "url",
+                  "type": "string"
+                },
+                {
+                  "name": "data",
+                  "type": "any",
+                  "optional": true
+                },
+                {
+                  "name": "options",
+                  "type": "RequestOptions"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<T>",
+              "isPrivate": true
+            },
+            {
+              "name": "buildUrl",
+              "params": [
+                {
+                  "name": "path",
+                  "type": "string"
+                },
+                {
+                  "name": "params",
+                  "type": "Record<string, any>",
+                  "optional": true
+                }
+              ],
+              "isAsync": false,
+              "returnType": "string",
+              "isPrivate": true
+            },
+            {
+              "name": "handleErrorResponse",
+              "params": [
+                {
+                  "name": "response",
+                  "type": "RequestUrlResponse"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "JiraServiceError",
+              "isPrivate": true
+            },
+            {
+              "name": "isRetryableError",
+              "params": [
+                {
+                  "name": "error",
+                  "type": "any"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "boolean",
+              "isPrivate": true
+            },
+            {
+              "name": "calculateRetryDelay",
+              "params": [
+                {
+                  "name": "attempt",
+                  "type": "number"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "number",
+              "isPrivate": true
+            },
+            {
+              "name": "sleep",
+              "params": [
+                {
+                  "name": "ms",
+                  "type": "number"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "Promise<void>",
+              "isPrivate": true
+            },
+            {
+              "name": "getConfig",
+              "params": [],
+              "isAsync": false,
+              "returnType": "Required<HttpClientConfig>"
+            },
+            {
+              "name": "updateConfig",
+              "params": [
+                {
+                  "name": "newConfig",
+                  "type": "Partial<HttpClientConfig>"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "void"
+            }
+          ],
+          "properties": [
+            {
+              "name": "config",
+              "type": "Required<HttpClientConfig>",
+              "isPrivate": true
+            }
+          ]
+        }
+      ],
+      "constants": []
+    },
+    "src/services/__tests__/ConfigurationManager.test.ts": {
+      "imports": [
+        {
+          "from": "obsidian",
+          "kind": "import"
+        },
+        {
+          "from": "../ConfigurationManager",
+          "kind": "import"
+        },
+        {
+          "from": "../types",
+          "kind": "import"
+        }
+      ],
+      "dependencies": [
+        "src/services/ConfigurationManager.ts",
+        "src/services/types.ts"
+      ],
+      "functions": [],
+      "classes": [],
+      "constants": []
+    },
+    "src/services/__tests__/httpClient.simple.test.ts": {
+      "imports": [
+        {
+          "from": "@jest/globals",
+          "kind": "import",
+          "imported": [
+            "describe",
+            "it",
+            "expect",
+            "beforeEach",
+            "afterEach",
+            "jest"
+          ]
+        },
+        {
+          "from": "../httpClient",
+          "kind": "import",
+          "imported": [
+            "HttpClient"
+          ]
+        }
+      ],
+      "dependencies": [
+        "src/services/httpClient.ts"
+      ],
+      "functions": [],
+      "classes": [],
+      "constants": []
+    },
+    "src/services/__tests__/jiraApiService.integration.test.ts": {
+      "imports": [
+        {
+          "from": "@jest/globals",
+          "kind": "import",
+          "imported": [
+            "describe",
+            "it",
+            "expect",
+            "beforeEach",
+            "afterEach",
+            "jest"
+          ]
+        },
+        {
+          "from": "../jiraApiService",
+          "kind": "import",
+          "imported": [
+            "JiraApiService"
+          ]
+        },
+        {
+          "from": "../AuthManager",
+          "kind": "import",
+          "imported": [
+            "AuthManager"
+          ]
+        },
+        {
+          "from": "../httpClient",
+          "kind": "import",
+          "imported": [
+            "HttpClient"
+          ]
+        },
+        {
+          "from": "../rateLimiter",
+          "kind": "import",
+          "imported": [
+            "RateLimiter"
+          ]
+        },
+        {
+          "from": "../types",
+          "kind": "import",
+          "imported": [
+            "JiraIssue",
+            "JiraProject",
+            "JiraUser",
+            "JiraSearchResult",
+            "JiraSearchParams",
+            "JiraTransition",
+            "JiraTransitionRequest",
+            "IssueKey",
+            "ProjectKey",
+            "UserId",
+            "createIssueKey",
+            "createProjectKey",
+            "createUserId"
+          ]
+        }
+      ],
+      "dependencies": [
+        "src/services/AuthManager.ts",
+        "src/services/httpClient.ts",
+        "src/services/jiraApiService.ts",
+        "src/services/rateLimiter.ts",
+        "src/services/types.ts"
+      ],
+      "functions": [],
+      "classes": [],
+      "constants": []
+    },
+    "src/services/__tests__/jiraApiService.test.ts": {
+      "imports": [
+        {
+          "from": "@jest/globals",
+          "kind": "import",
+          "imported": [
+            "describe",
+            "it",
+            "expect",
+            "beforeEach",
+            "afterEach",
+            "jest"
+          ]
+        },
+        {
+          "from": "../jiraApiService",
+          "kind": "import",
+          "imported": [
+            "JiraApiService"
+          ]
+        },
+        {
+          "from": "../AuthManager",
+          "kind": "import",
+          "imported": [
+            "AuthManager"
+          ]
+        },
+        {
+          "from": "../httpClient",
+          "kind": "import",
+          "imported": [
+            "HttpClient"
+          ]
+        },
+        {
+          "from": "../rateLimiter",
+          "kind": "import",
+          "imported": [
+            "RateLimiter"
+          ]
+        },
+        {
+          "from": "../types",
+          "kind": "import",
+          "imported": [
+            "JiraIssue",
+            "JiraProject",
+            "JiraUser",
+            "JiraSearchResult",
+            "JiraSearchParams",
+            "JiraTransition",
+            "JiraTransitionRequest",
+            "IssueKey",
+            "ProjectKey",
+            "UserId",
+            "createIssueKey",
+            "createProjectKey",
+            "createUserId"
+          ]
+        }
+      ],
+      "dependencies": [
+        "src/services/AuthManager.ts",
+        "src/services/httpClient.ts",
+        "src/services/jiraApiService.ts",
+        "src/services/rateLimiter.ts",
+        "src/services/types.ts"
+      ],
+      "functions": [],
+      "classes": [],
+      "constants": []
+    },
+    "src/services/httpClient.ts": {
+      "imports": [
+        {
+          "from": "axios",
+          "kind": "import",
+          "isDefault": true,
+          "imported": [
+            "AxiosInstance",
+            "AxiosRequestConfig",
+            "AxiosResponse",
+            "AxiosError"
+          ]
+        },
+        {
+          "from": "./rateLimiter",
+          "kind": "import",
+          "imported": [
+            "RateLimiter"
+          ]
+        },
+        {
+          "from": "./types",
+          "kind": "import",
+          "imported": [
+            "JiraApiError",
+            "NetworkError",
+            "AuthenticationError",
+            "RateLimitError",
+            "JiraServiceError"
+          ]
+        }
+      ],
+      "dependencies": [
+        "src/services/rateLimiter.ts",
+        "src/services/types.ts"
+      ],
+      "functions": [],
+      "classes": [
+        {
+          "name": "HttpClient",
+          "isExported": true,
+          "methods": [
+            {
+              "name": "setupInterceptors",
+              "params": [],
+              "isAsync": false,
+              "returnType": "void",
+              "isPrivate": true
+            },
+            {
+              "name": "get",
+              "params": [
+                {
+                  "name": "url",
+                  "type": "string"
+                },
+                {
+                  "name": "options",
+                  "type": "RequestOptions"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<T>"
+            },
+            {
+              "name": "post",
+              "params": [
+                {
+                  "name": "url",
+                  "type": "string"
+                },
+                {
+                  "name": "data",
+                  "type": "any",
+                  "optional": true
+                },
+                {
+                  "name": "options",
+                  "type": "RequestOptions"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<T>"
+            },
+            {
+              "name": "put",
+              "params": [
+                {
+                  "name": "url",
+                  "type": "string"
+                },
+                {
+                  "name": "data",
+                  "type": "any",
+                  "optional": true
+                },
+                {
+                  "name": "options",
+                  "type": "RequestOptions"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<T>"
+            },
+            {
+              "name": "patch",
+              "params": [
+                {
+                  "name": "url",
+                  "type": "string"
+                },
+                {
+                  "name": "data",
+                  "type": "any",
+                  "optional": true
+                },
+                {
+                  "name": "options",
+                  "type": "RequestOptions"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<T>"
+            },
+            {
+              "name": "delete",
+              "params": [
+                {
+                  "name": "url",
+                  "type": "string"
+                },
+                {
+                  "name": "options",
+                  "type": "RequestOptions"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<T>"
+            },
+            {
+              "name": "request",
+              "params": [
+                {
+                  "name": "method",
+                  "type": "string"
+                },
+                {
+                  "name": "url",
+                  "type": "string"
+                },
+                {
+                  "name": "data",
+                  "type": "any",
+                  "optional": true
+                },
+                {
+                  "name": "options",
+                  "type": "RequestOptions"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<T>",
+              "isPrivate": true
+            },
+            {
+              "name": "handleError",
+              "params": [
+                {
+                  "name": "error",
+                  "type": "any"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "JiraServiceError",
+              "isPrivate": true
+            },
+            {
+              "name": "createNetworkError",
+              "params": [
+                {
+                  "name": "error",
+                  "type": "any"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "NetworkError",
+              "isPrivate": true
+            },
+            {
+              "name": "createAuthenticationError",
+              "params": [
+                {
+                  "name": "error",
+                  "type": "AxiosError"
+                },
+                {
+                  "name": "data",
+                  "type": "any"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "AuthenticationError",
+              "isPrivate": true
+            },
+            {
+              "name": "createRateLimitError",
+              "params": [
+                {
+                  "name": "result",
+                  "type": "any"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "RateLimitError",
+              "isPrivate": true
+            },
+            {
+              "name": "createRateLimitErrorFromResponse",
+              "params": [
+                {
+                  "name": "error",
+                  "type": "AxiosError"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "RateLimitError",
+              "isPrivate": true
+            },
+            {
+              "name": "createApiError",
+              "params": [
+                {
+                  "name": "error",
+                  "type": "AxiosError"
+                },
+                {
+                  "name": "data",
+                  "type": "any"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "JiraApiError",
+              "isPrivate": true
+            },
+            {
+              "name": "isClientError",
+              "params": [
+                {
+                  "name": "error",
+                  "type": "any"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "boolean",
+              "isPrivate": true
+            },
+            {
+              "name": "isServerError",
+              "params": [
+                {
+                  "name": "error",
+                  "type": "any"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "boolean",
+              "isPrivate": true
+            },
+            {
+              "name": "isAuthError",
+              "params": [
+                {
+                  "name": "error",
+                  "type": "any"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "boolean",
+              "isPrivate": true
+            },
+            {
+              "name": "isRateLimitError",
+              "params": [
+                {
+                  "name": "error",
+                  "type": "any"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "boolean",
+              "isPrivate": true
+            },
+            {
+              "name": "isNetworkError",
+              "params": [
+                {
+                  "name": "error",
+                  "type": "any"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "boolean",
+              "isPrivate": true
+            },
+            {
+              "name": "calculateRetryDelay",
+              "params": [
+                {
+                  "name": "attempt",
+                  "type": "number"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "number",
+              "isPrivate": true
+            },
+            {
+              "name": "sleep",
+              "params": [
+                {
+                  "name": "ms",
+                  "type": "number"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "Promise<void>",
+              "isPrivate": true
+            },
+            {
+              "name": "setRateLimiter",
+              "params": [
+                {
+                  "name": "rateLimiter",
+                  "type": "RateLimiter"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "void"
+            },
+            {
+              "name": "getConfig",
+              "params": [],
+              "isAsync": false,
+              "returnType": "Required<HttpClientConfig>"
+            },
+            {
+              "name": "updateConfig",
+              "params": [
+                {
+                  "name": "newConfig",
+                  "type": "Partial<HttpClientConfig>"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "void"
+            }
+          ],
+          "properties": [
+            {
+              "name": "axiosInstance",
+              "type": "AxiosInstance",
+              "isPrivate": true
+            },
+            {
+              "name": "config",
+              "type": "Required<HttpClientConfig>",
+              "isPrivate": true
+            },
+            {
+              "name": "rateLimiter",
+              "type": "RateLimiter",
+              "isPrivate": true
+            }
+          ]
+        }
+      ],
+      "constants": []
+    },
+    "src/services/jiraApiService.ts": {
+      "imports": [
+        {
+          "from": "./AuthManager",
+          "kind": "import",
+          "imported": [
+            "AuthManager",
+            "JiraCredentials"
+          ]
+        },
+        {
+          "from": "./ObsidianHttpClient",
+          "kind": "import",
+          "imported": [
+            "ObsidianHttpClient"
+          ]
+        },
+        {
+          "from": "./ObsidianHttpClient",
+          "kind": "import",
+          "imported": [
+            "HttpClientConfig"
+          ]
+        },
+        {
+          "from": "./rateLimiter",
+          "kind": "import",
+          "imported": [
+            "RateLimiter"
+          ]
+        },
+        {
+          "from": "./types",
+          "kind": "import",
+          "imported": [
+            "JiraIssue",
+            "JiraProject",
+            "JiraUser",
+            "JiraSearchResult",
+            "JiraSearchParams",
+            "JiraTransition",
+            "JiraTransitionRequest",
+            "IssueKey",
+            "ProjectKey",
+            "UserId",
+            "JiraServiceError",
+            "RateLimitError",
+            "JiraComment",
+            "JiraCommentsResult",
+            "CreateCommentRequest",
+            "UpdateCommentRequest"
+          ]
+        }
+      ],
+      "dependencies": [
+        "src/services/AuthManager.ts",
+        "src/services/ObsidianHttpClient.ts",
+        "src/services/rateLimiter.ts",
+        "src/services/types.ts"
+      ],
+      "functions": [],
+      "classes": [
+        {
+          "name": "JiraApiService",
+          "isExported": true,
+          "methods": [
+            {
+              "name": "getCredentials",
+              "params": [
+                {
+                  "name": "masterPassword",
+                  "type": "string"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<JiraCredentials>"
+            },
+            {
+              "name": "validateCredentials",
+              "params": [
+                {
+                  "name": "credentials",
+                  "type": "JiraCredentials",
+                  "optional": true
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<boolean>"
+            },
+            {
+              "name": "clearCredentials",
+              "params": [],
+              "isAsync": true,
+              "returnType": "Promise<void>"
+            },
+            {
+              "name": "testConnection",
+              "params": [
+                {
+                  "name": "masterPassword",
+                  "type": "string"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<{ success: boolean; message: string }>"
+            },
+            {
+              "name": "getIssue",
+              "params": [
+                {
+                  "name": "issueIdOrKey",
+                  "type": "string | IssueKey"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<JiraIssue>"
+            },
+            {
+              "name": "createIssue",
+              "params": [
+                {
+                  "name": "issueData",
+                  "type": "any"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<JiraIssue>"
+            },
+            {
+              "name": "updateIssue",
+              "params": [
+                {
+                  "name": "issueIdOrKey",
+                  "type": "string | IssueKey"
+                },
+                {
+                  "name": "updateData",
+                  "type": "any"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<JiraIssue>"
+            },
+            {
+              "name": "getTransitions",
+              "params": [
+                {
+                  "name": "issueIdOrKey",
+                  "type": "string | IssueKey"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<JiraTransition[]>"
+            },
+            {
+              "name": "transitionIssue",
+              "params": [
+                {
+                  "name": "issueIdOrKey",
+                  "type": "string | IssueKey"
+                },
+                {
+                  "name": "transitionRequest",
+                  "type": "JiraTransitionRequest"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<void>"
+            },
+            {
+              "name": "getProjects",
+              "params": [],
+              "isAsync": true,
+              "returnType": "Promise<JiraProject[]>"
+            },
+            {
+              "name": "getProject",
+              "params": [
+                {
+                  "name": "projectIdOrKey",
+                  "type": "string | ProjectKey"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<JiraProject>"
+            },
+            {
+              "name": "getCurrentUser",
+              "params": [],
+              "isAsync": true,
+              "returnType": "Promise<JiraUser>"
+            },
+            {
+              "name": "searchUsers",
+              "params": [
+                {
+                  "name": "query",
+                  "type": "string"
+                },
+                {
+                  "name": "maxResults",
+                  "type": "number",
+                  "optional": true
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<JiraUser[]>"
+            },
+            {
+              "name": "searchIssues",
+              "params": [
+                {
+                  "name": "searchParams",
+                  "type": "JiraSearchParams"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<JiraSearchResult>"
+            },
+            {
+              "name": "batchUpdateIssues",
+              "params": [
+                {
+                  "name": "issueUpdates",
+                  "type": "Array<{\n    issueIdOrKey: string | IssueKey;\n    updateData: any;\n  }>"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<Array<{ issueIdOrKey: string; result: JiraIssue | Error }>>"
+            },
+            {
+              "name": "batchGetIssues",
+              "params": [
+                {
+                  "name": "issueIdsOrKeys",
+                  "type": "Array<string | IssueKey>"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<Array<{ issueIdOrKey: string; result: JiraIssue | Error }>>"
+            },
+            {
+              "name": "batchTransitionIssues",
+              "params": [
+                {
+                  "name": "transitions",
+                  "type": "Array<{\n    issueIdOrKey: string | IssueKey;\n    transitionRequest: JiraTransitionRequest;\n  }>"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<Array<{ issueIdOrKey: string; result: void | Error }>>"
+            },
+            {
+              "name": "getConfig",
+              "params": [],
+              "isAsync": false,
+              "returnType": "HttpClientConfig"
+            },
+            {
+              "name": "updateConfig",
+              "params": [
+                {
+                  "name": "config",
+                  "type": "Partial<HttpClientConfig>"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "void"
+            },
+            {
+              "name": "getRateLimitStats",
+              "params": [],
+              "isAsync": false
+            },
+            {
+              "name": "checkRateLimit",
+              "params": [],
+              "isAsync": true,
+              "returnType": "Promise<void>",
+              "isPrivate": true
+            },
+            {
+              "name": "deduplicateRequest",
+              "params": [
+                {
+                  "name": "cacheKey",
+                  "type": "string"
+                },
+                {
+                  "name": "requestFn",
+                  "type": "() => Promise<T>"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<T>",
+              "isPrivate": true
+            },
+            {
+              "name": "getComments",
+              "params": [
+                {
+                  "name": "issueIdOrKey",
+                  "type": "string | IssueKey"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<JiraCommentsResult>"
+            },
+            {
+              "name": "addComment",
+              "params": [
+                {
+                  "name": "issueIdOrKey",
+                  "type": "string | IssueKey"
+                },
+                {
+                  "name": "comment",
+                  "type": "CreateCommentRequest"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<JiraComment>"
+            },
+            {
+              "name": "updateComment",
+              "params": [
+                {
+                  "name": "issueIdOrKey",
+                  "type": "string | IssueKey"
+                },
+                {
+                  "name": "commentId",
+                  "type": "string"
+                },
+                {
+                  "name": "comment",
+                  "type": "UpdateCommentRequest"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<JiraComment>"
+            },
+            {
+              "name": "deleteComment",
+              "params": [
+                {
+                  "name": "issueIdOrKey",
+                  "type": "string | IssueKey"
+                },
+                {
+                  "name": "commentId",
+                  "type": "string"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<void>"
+            },
+            {
+              "name": "destroy",
+              "params": [],
+              "isAsync": false,
+              "returnType": "void"
+            }
+          ],
+          "properties": [
+            {
+              "name": "authManager",
+              "type": "AuthManager",
+              "isPrivate": true
+            },
+            {
+              "name": "httpClient",
+              "type": "ObsidianHttpClient",
+              "isPrivate": true
+            },
+            {
+              "name": "rateLimiter",
+              "type": "RateLimiter",
+              "isPrivate": true
+            },
+            {
+              "name": "requestDeduplicationMap",
+              "type": "Map<string, Promise<any>>",
+              "isPrivate": true
+            }
+          ]
+        }
+      ],
+      "constants": []
+    },
+    "src/services/rateLimiter.ts": {
+      "imports": [],
+      "dependencies": [],
+      "functions": [],
+      "classes": [
+        {
+          "name": "RateLimiter",
+          "isExported": true,
+          "methods": [
+            {
+              "name": "acquireToken",
+              "params": [],
+              "isAsync": true,
+              "returnType": "Promise<RateLimitResult>"
+            },
+            {
+              "name": "refillTokens",
+              "params": [],
+              "isAsync": false,
+              "returnType": "void",
+              "isPrivate": true
+            },
+            {
+              "name": "processQueue",
+              "params": [],
+              "isAsync": false,
+              "returnType": "void",
+              "isPrivate": true
+            },
+            {
+              "name": "getQueueSize",
+              "params": [],
+              "isAsync": false,
+              "returnType": "number"
+            },
+            {
+              "name": "getStats",
+              "params": [],
+              "isAsync": false,
+              "returnType": "RateLimitStats"
+            },
+            {
+              "name": "calculateRetryAfter",
+              "params": [],
+              "isAsync": false,
+              "returnType": "number",
+              "isPrivate": true
+            },
+            {
+              "name": "destroy",
+              "params": [],
+              "isAsync": false,
+              "returnType": "void"
+            }
+          ],
+          "properties": [
+            {
+              "name": "config",
+              "type": "Required<RateLimiterConfig>",
+              "isPrivate": true
+            },
+            {
+              "name": "tokens",
+              "type": "number",
+              "isPrivate": true
+            },
+            {
+              "name": "lastRefillTime",
+              "type": "number",
+              "isPrivate": true
+            },
+            {
+              "name": "queue",
+              "type": "Array<{\n    resolve: (result: RateLimitResult) => void;\n    reject: (error: Error) => void;\n    timestamp: number;\n  }>",
+              "isPrivate": true
+            },
+            {
+              "name": "refillInterval",
+              "type": "NodeJS.Timeout",
+              "isPrivate": true
+            }
+          ]
+        }
+      ],
+      "constants": []
+    },
+    "src/services/types.ts": {
+      "imports": [],
+      "dependencies": [],
+      "functions": [],
+      "classes": [],
+      "constants": [
+        {
+          "name": "createIssueKey",
+          "initKind": "function",
+          "isExported": true
+        },
+        {
+          "name": "createProjectKey",
+          "initKind": "function",
+          "isExported": true
+        },
+        {
+          "name": "createUserId",
+          "initKind": "function",
+          "isExported": true
+        }
+      ]
+    },
+    "src/settings/SettingsTab.ts": {
+      "imports": [
+        {
+          "from": "obsidian",
+          "kind": "import"
+        },
+        {
+          "from": "../main",
+          "kind": "import"
+        },
+        {
+          "from": "../services/AuthManager",
+          "kind": "import"
+        }
+      ],
+      "dependencies": [
+        "src/main.ts",
+        "src/services/AuthManager.ts"
+      ],
+      "functions": [],
+      "classes": [],
+      "constants": []
+    },
+    "src/setupTests.ts": {
+      "imports": [],
+      "dependencies": [],
+      "functions": [],
+      "classes": [],
+      "constants": []
+    },
+    "src/templates/TemplateEngine.ts": {
+      "imports": [
+        {
+          "from": "../services/types",
+          "kind": "import",
+          "imported": [
+            "JiraIssue",
+            "JiraUser",
+            "JiraStatus",
+            "JiraPriority",
+            "JiraComponent",
+            "JiraVersion"
+          ]
+        },
+        {
+          "from": "moment",
+          "kind": "import",
+          "isDefault": true
+        }
+      ],
+      "dependencies": [
+        "src/services/types.ts"
+      ],
+      "functions": [],
+      "classes": [
+        {
+          "name": "TemplateEngine",
+          "isExported": true,
+          "methods": [
+            {
+              "name": "getAvailableVariables",
+              "params": [],
+              "isAsync": false,
+              "returnType": "TemplateVariable[]"
+            },
+            {
+              "name": "getVariablesByCategory",
+              "params": [
+                {
+                  "name": "category",
+                  "type": "TemplateVariable['category']"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "TemplateVariable[]"
+            },
+            {
+              "name": "processIssue",
+              "params": [
+                {
+                  "name": "issue",
+                  "type": "JiraIssue"
+                },
+                {
+                  "name": "customTemplate",
+                  "type": "string",
+                  "optional": true
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<ProcessedTemplate>"
+            },
+            {
+              "name": "prepareTemplateData",
+              "params": [
+                {
+                  "name": "issue",
+                  "type": "JiraIssue"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "Record<string, any>",
+              "isPrivate": true
+            },
+            {
+              "name": "processTemplate",
+              "params": [
+                {
+                  "name": "template",
+                  "type": "string"
+                },
+                {
+                  "name": "data",
+                  "type": "Record<string, any>"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "string",
+              "isPrivate": true
+            },
+            {
+              "name": "processConditionals",
+              "params": [
+                {
+                  "name": "template",
+                  "type": "string"
+                },
+                {
+                  "name": "data",
+                  "type": "Record<string, any>"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "string",
+              "isPrivate": true
+            },
+            {
+              "name": "processEachBlocks",
+              "params": [
+                {
+                  "name": "template",
+                  "type": "string"
+                },
+                {
+                  "name": "data",
+                  "type": "Record<string, any>"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "string",
+              "isPrivate": true
+            },
+            {
+              "name": "getNestedValue",
+              "params": [
+                {
+                  "name": "obj",
+                  "type": "any"
+                },
+                {
+                  "name": "path",
+                  "type": "string"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "any",
+              "isPrivate": true
+            },
+            {
+              "name": "generateFrontmatter",
+              "params": [
+                {
+                  "name": "issue",
+                  "type": "JiraIssue"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "Record<string, any>",
+              "isPrivate": true
+            },
+            {
+              "name": "generateFilename",
+              "params": [
+                {
+                  "name": "issue",
+                  "type": "JiraIssue"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "string",
+              "isPrivate": true
+            },
+            {
+              "name": "formatDate",
+              "params": [
+                {
+                  "name": "dateString",
+                  "type": "string"
+                },
+                {
+                  "name": "format",
+                  "type": "string"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "string",
+              "isPrivate": true
+            },
+            {
+              "name": "validateTemplate",
+              "params": [
+                {
+                  "name": "template",
+                  "type": "string"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "{ isValid: boolean; errors: string[] }"
+            },
+            {
+              "name": "getDefaultTemplate",
+              "params": [],
+              "isAsync": false,
+              "returnType": "string"
+            },
+            {
+              "name": "updateConfig",
+              "params": [
+                {
+                  "name": "newConfig",
+                  "type": "Partial<TemplateConfig>"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "void"
+            }
+          ],
+          "properties": [
+            {
+              "name": "defaultTemplate",
+              "isPrivate": true,
+              "isReadonly": true
+            },
+            {
+              "name": "availableVariables",
+              "type": "TemplateVariable[]",
+              "isPrivate": true,
+              "isReadonly": true
+            }
+          ]
+        }
+      ],
+      "constants": []
+    },
+    "src/templates/TemplateManager.ts": {
+      "imports": [
+        {
+          "from": "obsidian",
+          "kind": "import",
+          "imported": [
+            "App",
+            "TFile",
+            "TFolder",
+            "Vault",
+            "normalizePath"
+          ]
+        },
+        {
+          "from": "./TemplateEngine",
+          "kind": "import",
+          "imported": [
+            "TemplateEngine"
+          ]
+        },
+        {
+          "from": "./types",
+          "kind": "import",
+          "imported": [
+            "TemplateSettings",
+            "NoteCreationOptions",
+            "CreatedNote"
+          ]
+        },
+        {
+          "from": "../services/types",
+          "kind": "import",
+          "imported": [
+            "JiraIssue"
+          ]
+        }
+      ],
+      "dependencies": [
+        "src/services/types.ts",
+        "src/templates/TemplateEngine.ts",
+        "src/templates/types.ts"
+      ],
+      "functions": [],
+      "classes": [
+        {
+          "name": "TemplateManager",
+          "isExported": true,
+          "methods": [
+            {
+              "name": "getDefaultSettings",
+              "params": [],
+              "isAsync": false,
+              "returnType": "TemplateSettings",
+              "isPrivate": true
+            },
+            {
+              "name": "updateSettings",
+              "params": [
+                {
+                  "name": "newSettings",
+                  "type": "Partial<TemplateSettings>"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "void"
+            },
+            {
+              "name": "getSettings",
+              "params": [],
+              "isAsync": false,
+              "returnType": "TemplateSettings"
+            },
+            {
+              "name": "createNoteForIssue",
+              "params": [
+                {
+                  "name": "issue",
+                  "type": "JiraIssue"
+                },
+                {
+                  "name": "options",
+                  "type": "NoteCreationOptions"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<CreatedNote>"
+            },
+            {
+              "name": "getTemplate",
+              "params": [
+                {
+                  "name": "templateName",
+                  "type": "string",
+                  "optional": true
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<string>",
+              "isPrivate": true
+            },
+            {
+              "name": "saveCustomTemplate",
+              "params": [
+                {
+                  "name": "name",
+                  "type": "string"
+                },
+                {
+                  "name": "content",
+                  "type": "string"
+                },
+                {
+                  "name": "saveToVault"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<void>"
+            },
+            {
+              "name": "getAvailableTemplates",
+              "params": [],
+              "isAsync": true,
+              "returnType": "Promise<string[]>"
+            },
+            {
+              "name": "deleteTemplate",
+              "params": [
+                {
+                  "name": "name",
+                  "type": "string"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<void>"
+            },
+            {
+              "name": "previewTemplate",
+              "params": [
+                {
+                  "name": "templateContent",
+                  "type": "string"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<string>"
+            },
+            {
+              "name": "getAvailableVariables",
+              "params": [],
+              "isAsync": false
+            },
+            {
+              "name": "validateTemplate",
+              "params": [
+                {
+                  "name": "template",
+                  "type": "string"
+                }
+              ],
+              "isAsync": false
+            },
+            {
+              "name": "formatNoteWithFrontmatter",
+              "params": [
+                {
+                  "name": "content",
+                  "type": "string"
+                },
+                {
+                  "name": "frontmatter",
+                  "type": "Record<string, any>"
+                }
+              ],
+              "isAsync": false,
+              "returnType": "string",
+              "isPrivate": true
+            },
+            {
+              "name": "getOutputPath",
+              "params": [
+                {
+                  "name": "filename",
+                  "type": "string"
+                },
+                {
+                  "name": "customPath",
+                  "type": "string",
+                  "optional": true
+                }
+              ],
+              "isAsync": false,
+              "returnType": "string",
+              "isPrivate": true
+            },
+            {
+              "name": "ensureDirectoryExists",
+              "params": [
+                {
+                  "name": "filePath",
+                  "type": "string"
+                }
+              ],
+              "isAsync": true,
+              "returnType": "Promise<void>",
+              "isPrivate": true
+            }
+          ],
+          "properties": [
+            {
+              "name": "templateEngine",
+              "type": "TemplateEngine",
+              "isPrivate": true
+            },
+            {
+              "name": "settings",
+              "type": "TemplateSettings",
+              "isPrivate": true
+            }
+          ]
+        }
+      ],
+      "constants": []
+    },
+    "src/templates/types.ts": {
+      "imports": [],
+      "dependencies": [],
+      "functions": [],
+      "classes": [],
+      "constants": []
+    },
+    "src/views/JiraView.tsx": {
+      "imports": [
+        {
+          "from": "obsidian",
+          "kind": "import",
+          "imported": [
+            "ItemView",
+            "WorkspaceLeaf"
+          ]
+        },
+        {
+          "from": "react-dom/client",
+          "kind": "import",
+          "imported": [
+            "createRoot",
+            "Root"
+          ]
+        },
+        {
+          "from": "react",
+          "kind": "import",
+          "isDefault": true
+        },
+        {
+          "from": "../main",
+          "kind": "import",
+          "isDefault": true
+        },
+        {
+          "from": "../components/JiraDashboard",
+          "kind": "import",
+          "imported": [
+            "JiraDashboard"
+          ]
+        },
+        {
+          "from": "../components/ObsidianThemeProvider",
+          "kind": "import",
+          "imported": [
+            "ObsidianThemeProvider"
+          ]
+        },
+        {
+          "from": "../contexts/JiraServiceContext",
+          "kind": "import",
+          "imported": [
+            "JiraServiceProvider"
+          ]
+        },
+        {
+          "from": "@tanstack/react-query",
+          "kind": "import",
+          "imported": [
+            "QueryClient",
+            "QueryClientProvider"
+          ]
+        }
+      ],
+      "dependencies": [
+        "src/components/JiraDashboard.tsx",
+        "src/components/ObsidianThemeProvider.tsx",
+        "src/contexts/JiraServiceContext.tsx",
+        "src/main.ts"
+      ],
+      "functions": [],
+      "classes": [
+        {
+          "name": "JiraView",
+          "isExported": true,
+          "methods": [
+            {
+              "name": "getViewType",
+              "params": [],
+              "isAsync": false
+            },
+            {
+              "name": "getDisplayText",
+              "params": [],
+              "isAsync": false
+            },
+            {
+              "name": "getIcon",
+              "params": [],
+              "isAsync": false
+            },
+            {
+              "name": "onOpen",
+              "params": [],
+              "isAsync": true
+            },
+            {
+              "name": "onClose",
+              "params": [],
+              "isAsync": true
+            },
+            {
+              "name": "onResize",
+              "params": [],
+              "isAsync": false
+            }
+          ],
+          "properties": [
+            {
+              "name": "root",
+              "type": "Root | null",
+              "isPrivate": true
+            },
+            {
+              "name": "plugin",
+              "type": "JiraDashboardPlugin",
+              "isPrivate": true
+            },
+            {
+              "name": "queryClient",
+              "type": "QueryClient",
+              "isPrivate": true
+            }
+          ],
+          "extends": "ItemView"
+        }
+      ],
+      "constants": [
+        {
+          "name": "VIEW_TYPE_JIRA_DASHBOARD",
+          "initKind": "literal",
+          "isExported": true
+        }
+      ]
+    },
+    "webpack.config.js": {
+      "imports": [],
+      "dependencies": [],
+      "functions": [],
+      "classes": [],
+      "constants": [
+        {
+          "name": "path",
+          "initKind": "unknown",
+          "isExported": false
+        }
+      ]
+    }
+  }
+}

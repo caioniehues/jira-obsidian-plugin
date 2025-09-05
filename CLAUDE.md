@@ -2,6 +2,33 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Repository Location & Setup
+
+This plugin is part of the Obsidian vault ecosystem and follows standardized development practices:
+
+- **Standard Location**: `~/ObsidianPlugins/jira-integration/`
+- **Repository**: https://github.com/caioniehues/jira-obsidian-plugin
+- **Plugin ID**: `jira-dashboard` (must match manifest.json)
+- **Vault Registry**: See vault's `📚 Documentation/development/PLUGIN_REGISTRY.md`
+
+### Cross-Platform Setup
+
+```bash
+# Quick setup (auto-detects OS and vault location)
+./setup-plugin.sh
+
+# Development mode
+npm run dev
+
+# Clean up when switching branches/machines
+./cleanup-plugin.sh
+```
+
+The setup scripts work on both macOS and Linux, automatically detecting:
+- Operating system differences
+- Common vault locations
+- Existing installations
+
 ## Development Commands
 
 ```bash

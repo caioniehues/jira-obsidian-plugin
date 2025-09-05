@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "minAppVersion": "1.4.0",
   "description": "Beautiful AI-powered Jira task dashboard for Obsidian",
-  "author": "Your Name",
-  "authorUrl": "https://github.com/yourusername",
+  "author": "Caio Niehues",
+  "authorUrl": "https://github.com/caioniehues",
   "isDesktopOnly": true
 }
